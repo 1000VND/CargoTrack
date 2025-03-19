@@ -1,0 +1,25 @@
+:host ::ng-deep {
+    ng-select {
+        .ng-select-container.ng-has-value>.ng-value-container {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            white-space: nowrap;
+
+            .ng-value {
+                display: inline-block;
+            }
+
+            .ng-input {
+                min-width: 3rem;
+
+                input {
+                    width: 100%;
+                }
+            }
+        }
+
+        .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-child {
+            padding: 8px 10px;
+        }
+    }
+}

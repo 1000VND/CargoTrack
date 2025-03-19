@@ -1,0 +1,119 @@
+<div class="container-fluid p-0 m-0">
+  <div class="d-grid gap-2 mx-2 mt-2">
+    <div class="card">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <!-- Cột tiêu đề (bên trái) -->
+          <div class="col-12 col-md-5">
+            <h5 class="text-primary fw-bold m-0">TỔNG QUAN CHUYẾN HÀNG</h5>
+          </div>
+
+          <!-- Cột bộ lọc và nút refresh (bên phải) -->
+          <div class="col-12 col-md-7 mt-2 mt-md-0">
+            <div class="row w-100 m-0 d-flex align-items-center justify-content-md-end">
+              <div class="col-auto ps-0 d-flex align-items-center">
+                <span class="text-muted fw-semibold">XEM THEO</span>
+              </div>
+              <div class="col col-md-auto p-0 multiple-container">
+                <ba-multiselect [options]="vehicles" [(ngModel)]="selected"
+                  [defaultLabel]="'Chọn phương tiện'"></ba-multiselect>
+              </div>
+              <div class="col-auto pe-0">
+                <button type="button" class="btn btn-primary d-flex align-items-center justify-content-center">
+                  <i class="fa-solid fa-rotate-right text-white"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" [ngClass]="'w-' + widthCollapseCompanyOverview">
+      <ba-collapse
+        [headerText]="'TỔNG QUAN CÔNG TY'"
+        [isCollapsed]="isCollapsedCompanyOverview"
+        [dropdownSubSide]="'left'"
+        (toggleCollapse)="isCollapsedCompanyOverview = !isCollapsedCompanyOverview"
+        (reload)="onReload()"
+        (changeWidth)="onChangeWidth($event)">
+      </ba-collapse>
+
+      <div class="collapse" [ngClass]="{'show': !isCollapsedCompanyOverview}">
+        <div class="card-body">
+          <div class="row d-flex gap-2 m-0">
+            <!-- Thẻ đầu tiên -->
+            <div class="card-item col-12 col-sm-3 flex-grow-1 p-0">
+              <div class="d-flex flex-column text-start p-2">
+                <span class="fw-semibold">Tổng phương tiện của công ty</span>
+                <span class="col fw-semibold my-2">{{85}} Phương tiện</span>
+              </div>
+            </div>
+
+            <!-- Thẻ thứ hai -->
+            <div class="card-item col-12 col-sm-3 flex-grow-1 p-0">
+              <div class="d-flex flex-column text-start p-2">
+                <span class="fw-semibold">Phương tiện có hàng</span>
+                <span class="col fw-semibold my-2">{{0}} Phương tiện</span>
+                <p>0% / Tổng phương tiện</p>
+              </div>
+            </div>
+
+            <!-- Thẻ thứ ba -->
+            <div class="card-item col-12 col-sm-3 flex-grow-1 p-0">
+              <div class="d-flex flex-column text-start p-2">
+                <span class="fw-semibold">Phương tiện không hàng</span>
+                <span class="col fw-semibold my-2">{{85}} Phương tiện</span>
+                <p>100% / Tổng phương tiện</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" [ngClass]="'w-' + widthCollapseVehiclesAtBorder">
+      <ba-collapse
+        [headerText]="'PHƯƠNG TIỆN TẠI CỦA KHẨU'"
+        [isCollapsed]="isCollapsedVehiclesAtBorder"
+        [dropdownSubSide]="'left'"
+        (toggleCollapse)="isCollapsedVehiclesAtBorder = !isCollapsedVehiclesAtBorder"
+        (reload)="onReload()"
+        (changeWidth)="onChangeWidth($event)"
+        [isDisabledSubmenu]="1">
+      </ba-collapse>
+
+      <div class="collapse" [ngClass]="{'show': !isCollapsedVehiclesAtBorder}">
+        <div class="card-body">
+          <div class="row d-flex gap-2 m-0">
+            <!-- Thẻ đầu tiên -->
+            <div class="card-item col-12 col-sm-3 flex-grow-1 p-0">
+              <div class="d-flex flex-column text-start p-2">
+                <span class="fw-semibold">Tổng phương tiện của công ty</span>
+                <span class="col fw-semibold my-2">{{85}} Phương tiện</span>
+              </div>
+            </div>
+
+            <!-- Thẻ thứ hai -->
+            <div class="card-item col-12 col-sm-3 flex-grow-1 p-0">
+              <div class="d-flex flex-column text-start p-2">
+                <span class="fw-semibold">Phương tiện có hàng</span>
+                <span class="col fw-semibold my-2">{{0}} Phương tiện</span>
+                <p>0% / Tổng phương tiện</p>
+              </div>
+            </div>
+
+            <!-- Thẻ thứ ba -->
+            <div class="card-item col-12 col-sm-3 flex-grow-1 p-0">
+              <div class="d-flex flex-column text-start p-2">
+                <span class="fw-semibold">Phương tiện không hàng</span>
+                <span class="col fw-semibold my-2">{{85}} Phương tiện</span>
+                <p>100% / Tổng phương tiện</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

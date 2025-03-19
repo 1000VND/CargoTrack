@@ -1,0 +1,57 @@
+.card-body {
+
+    .card-item {
+        color: white;
+        border-radius: 0.5rem;
+
+        p {
+            margin-top: 1rem;
+            margin-bottom: 0;
+        }
+    }
+
+    .card-item:nth-child(1) {
+        background-color: #006adc;
+    }
+
+    .card-item:nth-child(2) {
+        background-color: #509447;
+    }
+
+    .card-item:nth-child(3) {
+        background-color: #e2803c;
+    }
+
+}
+
+
+@media (max-width: 767px) {
+    :host ::ng-deep {
+        .ng-select {
+            width: 100% !important;
+        }
+    }
+
+    .multiple-container {
+        flex-grow: 1;
+        width: 0;
+    }
+}
+
+@media (min-width: 576px) {
+    .w-33-custom {
+        width: 33.33%;
+    }
+
+    .w-66-custom {
+        width: 66.66%;
+    }
+}
+
+@media (max-width: 575px) {
+
+    .w-33-custom,
+    .w-66-custom {
+        width: auto;
+    }
+}
