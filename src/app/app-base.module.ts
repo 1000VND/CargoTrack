@@ -95,6 +95,7 @@ import { TreeModule } from "primeng/tree";
 import { TreeSelectModule } from "primeng/treeselect";
 import { TreeTableModule } from "primeng/treetable";
 import { NgSelectModule } from '@ng-select/ng-select';
+import { DxChartModule, DxPieChartModule } from "devextreme-angular";
 
 @NgModule({
     imports: [
@@ -193,7 +194,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
         InputIconModule,
         AutoFocusModule,
         CarouselModule,
-        NgSelectModule, 
+        NgSelectModule,
+        DxPieChartModule,
+        DxChartModule
     ],
     exports: [
         CommonModule,
@@ -291,7 +294,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
         InputIconModule,
         AutoFocusModule,
         CarouselModule,
-        NgSelectModule
+        NgSelectModule,
+        DxPieChartModule,
+        DxChartModule
     ],
     providers: []
 })

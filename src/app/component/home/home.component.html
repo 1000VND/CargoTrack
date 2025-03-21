@@ -1,5 +1,6 @@
 <div class="container-fluid p-0 m-0">
   <div class="d-grid gap-2 mx-2 mt-2">
+    <!-- Header -->
     <div class="card">
       <div class="card-body">
         <div class="row align-items-center">
@@ -29,19 +30,20 @@
       </div>
     </div>
 
-    <div class="card" [ngClass]="'w-' + widthCollapseCompanyOverview">
-      <ba-collapse
-        [headerText]="'TỔNG QUAN CÔNG TY'"
+    <!-- Widget thứ 2 -->
+    <div [ngClass]="'w-' + widthCollapseCompanyOverview">
+      <ba-collapse 
+        [headerText]="'TỔNG QUAN CÔNG TY'" 
         [isCollapsed]="isCollapsedCompanyOverview"
-        [dropdownSubSide]="'left'"
+        [dropdownSubSide]="'left'" 
         (toggleCollapse)="isCollapsedCompanyOverview = !isCollapsedCompanyOverview"
-        (reload)="onReload()"
-        (changeWidth)="onChangeWidth($event)">
+        (reload)="onReload()" 
+        (changeWidth)="onChangeWidth($event, 'widthCollapseCompanyOverview')">
       </ba-collapse>
 
       <div class="collapse" [ngClass]="{'show': !isCollapsedCompanyOverview}">
         <div class="card-body">
-          <div class="row d-flex gap-2 m-0">
+          <div class="row d-flex gap-3 m-3">
             <!-- Thẻ đầu tiên -->
             <div class="card-item col-12 col-sm-3 flex-grow-1 p-0">
               <div class="d-flex flex-column text-start p-2">
@@ -72,46 +74,173 @@
       </div>
     </div>
 
-    <div class="card" [ngClass]="'w-' + widthCollapseVehiclesAtBorder">
-      <ba-collapse
-        [headerText]="'PHƯƠNG TIỆN TẠI CỦA KHẨU'"
-        [isCollapsed]="isCollapsedVehiclesAtBorder"
-        [dropdownSubSide]="'left'"
-        (toggleCollapse)="isCollapsedVehiclesAtBorder = !isCollapsedVehiclesAtBorder"
-        (reload)="onReload()"
-        (changeWidth)="onChangeWidth($event)"
-        [isDisabledSubmenu]="1">
+    <!-- Widget thứ 3 -->
+    <div class="row d-flex flex-wrap m-0">
+      <div class="col-12 p-0 pb-2" [ngClass]="widthCollapseVehiclesAtBorder">
+        <ba-collapse 
+          [headerText]="'PHƯƠNG TIỆN TẠI CỬA KHẨU'" 
+          [isCollapsed]="isCollapsedVehiclesAtBorder"
+          [dropdownSubSide]="'right'" 
+          (toggleCollapse)="isCollapsedVehiclesAtBorder = !isCollapsedVehiclesAtBorder"
+          (reload)="onReload()" 
+          (changeWidth)="onChangeWidthVehiclesAtBorder($event)">
+        </ba-collapse>
+
+        <div class="collapse" [ngClass]="{'show': !isCollapsedVehiclesAtBorder}">
+          <div class="card-body d-flex justify-content-center p-0 m-3">
+            <dx-pie-chart #pieChart id="chart" type="doughnut" title="" [palette]="customPalette"
+              [dataSource]="vehiclesAtBorder" class="responsive-chart" centerTemplate="centerTemplate"
+              [redrawOnResize]="true">
+              <dxi-series argumentField="region" valueField="valueField">
+                <dxo-label [visible]="true" [customizeText]="customizeLabel" [backgroundColor]="'transparent'">
+                  <dxo-font color="#321523"></dxo-font>
+                  <dxo-connector color="#321523" [visible]="true"></dxo-connector>
+                </dxo-label>
+              </dxi-series>
+              <dxo-export [enabled]="false"></dxo-export>
+              <dxo-legend [margin]="0" horizontalAlignment="center" verticalAlignment="bottom"
+                markerTemplate="markerTemplate">
+                <svg *dxTemplate="let item of 'markerTemplate'">
+                  <circle cx="6" cy="6" r="6" [attr.fill]="getMarkerColor(item)"></circle>
+                </svg>
+              </dxo-legend>
+              <dxo-tooltip [enabled]="false" [customizeTooltip]="customizeLabel">
+              </dxo-tooltip>
+
+              <svg *dxTemplate="let pieChart of 'centerTemplate'">
+                <circle cx="100" cy="100" [attr.r]="pieChart.getInnerRadius() - 6" fill="#ffffff"></circle>
+                <text text-anchor="middle" style="font-size: 18px" x="100" y="100" fill="#494949">
+                  <tspan x="100" y="95" style="font-weight: 600">
+                    {{calculateTotal(pieChart)}}
+                  </tspan>
+                  <tspan x="100" y="120" style="font-size: 12px; font-weight: normal;">phương tiện</tspan>
+                </text>
+              </svg>
+            </dx-pie-chart>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 p-0 pb-2" [ngClass]="widthCollapseVehiclesOnTheRoad">
+        <ba-collapse 
+          [headerText]="'PHƯƠNG TIỆN TRÊN ĐƯỜNG'" 
+          [isCollapsed]="isCollapsedVehiclesOnTheRoad"
+          [dropdownSubSide]="'right'" 
+          (toggleCollapse)="isCollapsedVehiclesOnTheRoad = !isCollapsedVehiclesOnTheRoad"
+          (reload)="onReload()" 
+          (changeWidth)="onChangeWidthVehiclesOnTheRoad($event)">
+        </ba-collapse>
+
+        <div class="collapse" [ngClass]="{'show': !isCollapsedVehiclesOnTheRoad}">
+          <div class="card-body d-flex justify-content-center p-0 m-3">
+            <dx-pie-chart #pieChart id="chart" type="doughnut" title="" [palette]="customPalette"
+              [dataSource]="vehiclesOnTheRoad" class="responsive-chart" centerTemplate="centerTemplate"
+              [redrawOnResize]="true">
+              <dxi-series argumentField="region" valueField="valueField">
+                <dxo-label [visible]="true" [customizeText]="customizeLabel" [backgroundColor]="'transparent'"
+                  [wordWrap]="'normal'">
+                  <dxo-font color="#321523" [size]="setDynamicFontSize()"></dxo-font>
+                  <dxo-connector color="#321523" [visible]="true"></dxo-connector>
+                </dxo-label>
+              </dxi-series>
+              <dxo-export [enabled]="false"></dxo-export>
+              <dxo-legend [margin]="0" horizontalAlignment="center" verticalAlignment="bottom"
+                markerTemplate="markerTemplate">
+                <svg *dxTemplate="let item of 'markerTemplate'">
+                  <circle cx="6" cy="6" r="6" [attr.fill]="getMarkerColor(item)"></circle>
+                </svg>
+              </dxo-legend>
+              <dxo-tooltip [enabled]="false" [customizeTooltip]="customizeLabel">
+              </dxo-tooltip>
+
+              <svg *dxTemplate="let pieChart of 'centerTemplate'">
+                <circle cx="100" cy="100" [attr.r]="pieChart.getInnerRadius() - 6" fill="#ffffff"></circle>
+                <text text-anchor="middle" style="font-size: 18px" x="100" y="100" fill="#494949">
+                  <tspan x="100" y="95" style="font-weight: 600">
+                    {{calculateTotal(pieChart)}}
+                  </tspan>
+                  <tspan x="100" y="120" style="font-size: 12px; font-weight: normal;">phương tiện</tspan>
+                </text>
+              </svg>
+            </dx-pie-chart>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 p-0" [ngClass]="widthCollapseVehiclesAtFactory">
+        <ba-collapse 
+          [headerText]="'PHƯƠNG TIỆN TẠI NHÀ MÁY'" 
+          [isCollapsed]="isCollapsedVehiclesAtFactory"
+          [dropdownSubSide]="'left'" 
+          (toggleCollapse)="isCollapsedVehiclesAtFactory = !isCollapsedVehiclesAtFactory"
+          (reload)="onReload()" 
+          (changeWidth)="onChangeWidthVehiclesAtFactory($event)">
+        </ba-collapse>
+
+        <div class="collapse" [ngClass]="{'show': !isCollapsedVehiclesAtFactory}">
+          <div class="card-body d-flex justify-content-center p-0 m-3">
+            <dx-chart #barChart id="chart" [dataSource]="vehiclesAtFactory" class="responsive-chart"
+              [redrawOnResize]="true" title="Số phương tiện">
+              <dxi-series argumentField="name" valueField="value" name="dxiSeries" type="bar" color="#dc143c"
+                [barWidth]="50">
+                <dxo-label [visible]="true" [customizeText]="customizeBarLabel" [backgroundColor]="'transparent'">
+                  <dxo-font color="#321523" weight="bold"></dxo-font>
+                </dxo-label>
+              </dxi-series>
+
+              <dxo-argument-axis>
+                <dxo-label [rotationAngle]="45" [overlappingBehavior]="'none'" [visible]="true">
+                </dxo-label>
+              </dxo-argument-axis>
+
+              <dxi-value-axis [tickInterval]="1" [maxValueMargin]="1">
+              </dxi-value-axis>
+              <dxo-legend [visible]="false"></dxo-legend>
+            </dx-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 p-0" [ngClass]="'w-' + widthCollapseVehiclesAtPort">
+      <ba-collapse 
+        [headerText]="'PHƯƠNG TIỆN TẠI NHÀ MÁY'" 
+        [isCollapsed]="isCollapsedVehiclesAtPort"
+        [dropdownSubSide]="'left'" 
+        (toggleCollapse)="isCollapsedVehiclesAtPort = !isCollapsedVehiclesAtPort"
+        (reload)="onReload()" 
+        (changeWidth)="onChangeWidth($event, 'widthCollapseVehiclesAtPort')">
       </ba-collapse>
 
-      <div class="collapse" [ngClass]="{'show': !isCollapsedVehiclesAtBorder}">
-        <div class="card-body">
-          <div class="row d-flex gap-2 m-0">
-            <!-- Thẻ đầu tiên -->
-            <div class="card-item col-12 col-sm-3 flex-grow-1 p-0">
-              <div class="d-flex flex-column text-start p-2">
-                <span class="fw-semibold">Tổng phương tiện của công ty</span>
-                <span class="col fw-semibold my-2">{{85}} Phương tiện</span>
-              </div>
-            </div>
+      <div class="collapse" [ngClass]="{'show': !isCollapsedVehiclesAtPort}">
+        <div class="card-body d-flex justify-content-center p-0 m-3">
+          <dx-chart #barChart id="chart" [dataSource]="vehiclesAtPort" class="responsive-chart">
+            <dxo-zoom-and-pan argumentAxis="both"></dxo-zoom-and-pan>
+            <dxi-series 
+              argumentField="name" 
+              valueField="value" 
+              name="dxiSeries" 
+              type="bar" 
+              color="#20c997"
+              [barWidth]="30"
+              >
+              <dxo-label [visible]="true" [customizeText]="customizeBarLabel" [backgroundColor]="'transparent'">
+                <dxo-font color="#321523" weight="bold"></dxo-font>
+              </dxo-label>
+            </dxi-series>
+            <dxo-argument-axis >
+              <dxo-label [rotationAngle]="45" [overlappingBehavior]="'none'" [visible]="true">
+              </dxo-label>
+            </dxo-argument-axis>
+            
+            <!-- <dxi-value-axis [tickInterval]="1" [maxValueMargin]="1">
+              <dxo-title text="Số phương tiện" [margin]="20"></dxo-title>
 
-            <!-- Thẻ thứ hai -->
-            <div class="card-item col-12 col-sm-3 flex-grow-1 p-0">
-              <div class="d-flex flex-column text-start p-2">
-                <span class="fw-semibold">Phương tiện có hàng</span>
-                <span class="col fw-semibold my-2">{{0}} Phương tiện</span>
-                <p>0% / Tổng phương tiện</p>
-              </div>
-            </div>
+            </dxi-value-axis> -->
+            <dxo-scroll-bar [visible]="true" [position]="'bottom'" [offset]="30"></dxo-scroll-bar>
 
-            <!-- Thẻ thứ ba -->
-            <div class="card-item col-12 col-sm-3 flex-grow-1 p-0">
-              <div class="d-flex flex-column text-start p-2">
-                <span class="fw-semibold">Phương tiện không hàng</span>
-                <span class="col fw-semibold my-2">{{85}} Phương tiện</span>
-                <p>100% / Tổng phương tiện</p>
-              </div>
-            </div>
-          </div>
+            <dxo-legend [visible]="false"></dxo-legend>
+          </dx-chart>
         </div>
       </div>
     </div>
