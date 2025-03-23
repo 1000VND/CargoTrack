@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AppBaseModule } from '../../app-base.module';
-import { Vehicles } from '../../data/seed-data';
+import { DataDashboards } from '../../data/seed-data';
 import { CollapseComponent } from "../common/collapse/collapse.component";
 import { MultiSelectComponent } from '../common/multiselect/multiselect.component';
 import { PercentPipe } from '@angular/common';
 import { DxChartComponent, DxPieChartComponent } from 'devextreme-angular';
+import { WidthCard } from '../../models/width-card';
 
 @Component({
   selector: 'home',
@@ -16,8 +17,8 @@ import { DxChartComponent, DxPieChartComponent } from 'devextreme-angular';
 export class HomeComponent implements OnInit {
   [key: string]: any;
 
-  vehicles: { label: string; value: string }[] = [];
-  selected = [];
+  vehicles: { label: string; value: string | undefined | null }[] = [];
+  selected: string[] = [];
   dynamicFontSize: number | undefined;
   categories: string[] = [];
   isCollapsedCompanyOverview: boolean = false;
@@ -25,41 +26,41 @@ export class HomeComponent implements OnInit {
   isCollapsedVehiclesOnTheRoad: boolean = false;
   isCollapsedVehiclesAtFactory: boolean = false;
   isCollapsedVehiclesAtPort: boolean = false;
-  widthCollapseCompanyOverview: string = 'auto'
-  widthCollapseVehiclesAtBorder: string = 'col-md-4 p-md-0 pe-md-2 auto-'
-  widthCollapseVehiclesOnTheRoad: string = 'col-md-4 p-md-0 pe-md-2 auto-'
-  widthCollapseVehiclesAtFactory: string = 'col-md-4 auto-'
-  widthCollapseVehiclesAtPort: string = ''
+  widthCollapseCompanyOverview: string = 'auto';
+  widthCollapseVehiclesAtBorder: WidthCard = { width: 'width-33-custom flex-grow-1', status: 'auto' };
+  widthCollapseVehiclesOnTheRoad: WidthCard = { width: 'width-33-custom flex-grow-1', status: 'auto' };
+  widthCollapseVehiclesAtFactory: WidthCard = { width: 'width-33-custom flex-grow-1', status: 'auto' };
+  widthCollapseVehiclesAtPort: string = '';
+  countCompanyVehicles: number = 0;
+  countVehiclesAreInStock: number = 0;
+  countVehicleIsEmpty: number = 0;
 
   pipe = new PercentPipe('en-US');
   customPalette = ['#509447', '#e2803c'];
 
-  vehiclesAtBorder: any[] = [{
-    region: 'Phương tiện có hàng',
-    valueField: 5,
-  }, {
-    region: 'Phương tiện không hàng',
-    valueField: 81,
-  }];
+  vehiclesAtBorder: { argumentField: string; valueField: number }[] = [
+    { argumentField: 'Phương tiện có hàng', valueField: 0 },
+    { argumentField: 'Phương tiện không hàng', valueField: 0 }
+  ];
+  vehiclesOnTheRoad: { argumentField: string; valueField: number }[] = [
+    { argumentField: 'Phương tiện có hàng', valueField: 0 },
+    { argumentField: 'Phương tiện không hàng', valueField: 0 }
+  ];
 
-  vehiclesOnTheRoad: any[] = [{
-    region: 'Phương tiện có hàng',
-    valueField: 5,
-  }, {
-    region: 'Phương tiện không hàng',
-    valueField: 40,
-  }];
-
-  vehiclesAtFactory: any[] = [{
-    name: 'Cty Sedovina (trang thiết bị trường học)',
-    value: 2,
-  }, {
-    name: 'Keyhinge Hòa Cầm',
-    value: 1,
-  }, {
-    name: 'Sợi Phú Nam',
-    value: 1,
-  }];
+  vehiclesAtFactory: any[] = [
+    {
+      name: 'Cty Sedovina (trang thiết bị trường học)',
+      value: 2,
+    },
+    {
+      name: 'Keyhinge Hòa Cầm',
+      value: 1,
+    },
+    {
+      name: 'Sợi Phú Nam',
+      value: 1,
+    }
+  ];
 
   vehiclesAtPort: any[] = [
     {
@@ -122,90 +123,6 @@ export class HomeComponent implements OnInit {
       name: 'Bãi xe 223 Trường Chinh',
       value: 34,
     },
-    {
-      name: '1',
-      value: 36,
-    },
-    {
-      name: '2',
-      value: 38,
-    },
-    {
-      name: '3',
-      value: 40,
-    },
-    {
-      name: '5',
-      value: 6,
-    },
-    {
-      name: '6',
-      value: 8,
-    },
-    {
-      name: '7',
-      value: 10
-    },
-    {
-      name: '8',
-      value: 12,
-    },
-    {
-      name: '9',
-      value: 14,
-    },
-    {
-      name: '10',
-      value: 16,
-    },
-    {
-      name: '11',
-      value: 18,
-    },
-    {
-      name: '12',
-      value: 20,
-    },
-    {
-      name: '13',
-      value: 22,
-    },
-    {
-      name: '14',
-      value: 24,
-    },
-    {
-      name: 'Bãi Container Hoàng Bảo Anh (KCN PBAI)',
-      value: 26,
-    },
-    {
-      name: 'Bãi Dăm Bạch đàn',
-      value: 28,
-    },
-    {
-      name: 'Bãi Tân Thanh (container Hòa Cầm)',
-      value: 30,
-    },
-    {
-      name: 'Bãi X50',
-      value: 32,
-    },
-    {
-      name: 'Bãi xe 223 Trường Chinh',
-      value: 34,
-    },
-    {
-      name: '1',
-      value: 36,
-    },
-    {
-      name: '2',
-      value: 38,
-    },
-    {
-      name: '3',
-      value: 40,
-    }
   ];
 
   customizeTooltip = ({ valueText, percent }: { valueText: string, percent: number }) => ({
@@ -214,7 +131,7 @@ export class HomeComponent implements OnInit {
 
   customizeLabel(e: any) {
     const percentage = e.percent * 100;
-    return `${e.value} Phương tiện (${percentage.toFixed(0)}%)`;
+    return `${e.value} Phương tiện (${percentage.toFixed(2)}%)`;
   }
 
   customizeBarLabel(e: any) {
@@ -222,14 +139,18 @@ export class HomeComponent implements OnInit {
   }
 
   constructor() {
-    this.setDynamicFontSize();
-
-    Vehicles.forEach(e => {
+    DataDashboards.forEach(e => {
       this.vehicles.push({
-        value: e.type,
-        label: e.type
+        value: e.vehicle,
+        label: e.vehicle
       })
     });
+
+    this.totalDataDashboard();
+
+    setInterval(() => {
+      this.totalDataDashboard();
+    }, 5 * 60 * 1000);
   }
 
   ngOnInit() {
@@ -259,67 +180,66 @@ export class HomeComponent implements OnInit {
   }
 
   onChangeWidthVehiclesAtBorder(width: number) {
-    const checkAutoVehiclesOnTheRoad = this.widthCollapseVehiclesOnTheRoad.includes('auto-') || this.widthCollapseVehiclesOnTheRoad.includes('col-md-4');
-    const checkAutoVehiclesAtFactory = this.widthCollapseVehiclesAtFactory.includes('auto-');
-
     switch (width) {
       case 1:
-        this.widthCollapseVehiclesAtBorder = 'col-md-4 pb-md-0 pe-md-2';
-        this.widthCollapseVehiclesOnTheRoad = (checkAutoVehiclesOnTheRoad ? 'col-md-4 p-md-0 pe-md-2' : this.widthCollapseVehiclesOnTheRoad) + ' auto-';
-        this.widthCollapseVehiclesAtFactory = (checkAutoVehiclesAtFactory ? 'col-md-4 p-md-0' : this.widthCollapseVehiclesAtFactory) + ' auto-';
+        this.widthCollapseVehiclesAtBorder.width = 'width-33-custom';
+        this.widthCollapseVehiclesAtBorder.status = 'small';
         break;
-
       case 2:
-        this.widthCollapseVehiclesAtBorder = 'col-md-8 pe-md-2';
-        this.widthCollapseVehiclesOnTheRoad = (checkAutoVehiclesOnTheRoad ? 'col-md-4 p-md-0' : this.widthCollapseVehiclesOnTheRoad) + ' auto-';
-        this.widthCollapseVehiclesAtFactory = (checkAutoVehiclesAtFactory ? 'col-md-12' : this.widthCollapseVehiclesAtFactory) + ' auto-';
+        this.widthCollapseVehiclesAtBorder.width = 'width-66-custom';
+        this.widthCollapseVehiclesAtBorder.status = 'medium';
         break;
-
       case 3:
-        this.widthCollapseVehiclesAtBorder = 'col-md-12 pe-md-0';
-        this.widthCollapseVehiclesOnTheRoad = (checkAutoVehiclesOnTheRoad ? 'col-md-6 p-md-0 pe-md-2' : this.widthCollapseVehiclesOnTheRoad) + ' auto-';
-        this.widthCollapseVehiclesAtFactory = (checkAutoVehiclesAtFactory ? 'col-md-6 p-md-0' : this.widthCollapseVehiclesAtFactory) + ' auto-';
+        this.widthCollapseVehiclesAtBorder.width = 'width-100-custom';
+        this.widthCollapseVehiclesAtBorder.status = 'large';
         break;
-
       default:
-        this.widthCollapseVehiclesAtBorder = this.widthCollapseVehiclesAtBorder + ' auto-';
+        this.widthCollapseVehiclesAtBorder.width = 'width-33-custom flex-grow-1';
+        this.widthCollapseVehiclesAtBorder.status = 'auto';
         break;
     }
   }
 
   onChangeWidthVehiclesOnTheRoad(width: number) {
-    const checkAutoVehiclesAtBorder = this.widthCollapseVehiclesAtBorder.includes('auto-');
-    const checkMd8VehiclesAtBorder = this.checkMdVehiclesAtBorder();
-    const checkAutoVehiclesAtFactory = this.widthCollapseVehiclesAtFactory.includes('auto-');
-
     switch (width) {
       case 1:
-        this.widthCollapseVehiclesOnTheRoad = 'col-md-4 pb-md-0' + (checkMd8VehiclesAtBorder == 8 ? ' pe-md-0' : ' pe-md-2');
-        this.widthCollapseVehiclesAtFactory = (checkAutoVehiclesAtFactory
-          ? (checkMd8VehiclesAtBorder == 4 ? 'col-md-4 pe-md-0' : (checkMd8VehiclesAtBorder == 8 ? 'col-md-12 pe-md-0' : 'col-md-8 pe-md-0'))
-          : this.widthCollapseVehiclesAtFactory) + ' auto-';
+        this.widthCollapseVehiclesOnTheRoad.width = 'width-33-custom';
+        this.widthCollapseVehiclesOnTheRoad.status = 'small';
         break;
-
-      // case 2:
-      //   this.widthCollapseVehiclesAtBorder = 'col-md-8 pe-md-2';
-      //   this.widthCollapseVehiclesOnTheRoad = (checkAutoVehiclesOnTheRoad ? 'col-md-3 flex-grow-1 p-md-0' : this.widthCollapseVehiclesOnTheRoad) + ' auto-';
-      //   this.widthCollapseVehiclesAtFactory = (checkAutoVehiclesAtFactory ? 'col-md-12' : this.widthCollapseVehiclesAtFactory) + ' auto-';
-      //   break;
-
-      // case 3:
-      //   this.widthCollapseVehiclesAtBorder = 'col-md-12 pe-md-0';
-      //   this.widthCollapseVehiclesOnTheRoad = (checkAutoVehiclesOnTheRoad ? 'col-md-6 p-md-0 pe-md-2' : this.widthCollapseVehiclesOnTheRoad) + ' auto-';
-      //   this.widthCollapseVehiclesAtFactory = (checkAutoVehiclesAtFactory ? 'col-md-6 p-md-0' : this.widthCollapseVehiclesAtFactory) + ' auto-';
-      //   break;
-
+      case 2:
+        this.widthCollapseVehiclesOnTheRoad.width = 'width-66-custom';
+        this.widthCollapseVehiclesOnTheRoad.status = 'medium';
+        break;
+      case 3:
+        this.widthCollapseVehiclesOnTheRoad.width = 'width-100-custom';
+        this.widthCollapseVehiclesOnTheRoad.status = 'large';
+        break;
       default:
-        this.widthCollapseVehiclesAtBorder = this.widthCollapseVehiclesAtBorder + ' auto-';
+        this.widthCollapseVehiclesOnTheRoad.width = 'width-33-custom flex-grow-1';
+        this.widthCollapseVehiclesOnTheRoad.status = 'auto';
         break;
     }
   }
 
   onChangeWidthVehiclesAtFactory(width: number) {
-
+    switch (width) {
+      case 1:
+        this.widthCollapseVehiclesAtFactory.width = 'width-33-custom';
+        this.widthCollapseVehiclesAtFactory.status = 'small';
+        break;
+      case 2:
+        this.widthCollapseVehiclesAtFactory.width = 'width-66-custom';
+        this.widthCollapseVehiclesAtFactory.status = 'medium';
+        break;
+      case 3:
+        this.widthCollapseVehiclesAtFactory.width = 'width-100-custom';
+        this.widthCollapseVehiclesAtFactory.status = 'large';
+        break;
+      default:
+        this.widthCollapseVehiclesAtFactory.width = 'width-33-custom flex-grow-1';
+        this.widthCollapseVehiclesAtFactory.status = 'auto';
+        break;
+    }
   }
 
   calculateTotal(pieChart: any) {
@@ -334,25 +254,55 @@ export class HomeComponent implements OnInit {
     return item.visible ? item.marker.fill : '#eee';
   }
 
-  setDynamicFontSize() {
-    const screenWidth = window.innerWidth;
-
-    if (screenWidth < 600) {
-      this.dynamicFontSize = 10;  // Kích thước chữ nhỏ cho màn hình nhỏ
-    } else if (screenWidth < 1000) {
-      this.dynamicFontSize = 12;  // Kích thước chữ trung bình
+  calculateDashboardTotalsBySelection() {
+    if (this.selected.length === 0 || this.selected[0].includes('Tất')) {
+      this.totalDataDashboard();
     } else {
-      this.dynamicFontSize = 14;  // Kích thước chữ lớn cho màn hình rộng
+      this.refreshData();
+      DataDashboards.filter(e => this.selected.includes(e.vehicle)).forEach(e => {
+        this.countCompanyVehicles += e.totalCompanyVehicles;
+        this.countVehiclesAreInStock += e.vehiclesAreInStock;
+        this.countVehicleIsEmpty += e.vehicleIsEmpty;
+
+        this.vehiclesAtBorder[0].valueField += e.vehiclesAtBorder.vehiclesAreInStock;
+        this.vehiclesAtBorder[1].valueField += e.vehiclesAtBorder.vehicleIsEmpty;
+
+        this.vehiclesOnTheRoad[0].valueField += e.vehiclesOnTheRoad.vehiclesAreInStock;
+        this.vehiclesOnTheRoad[1].valueField += e.vehiclesOnTheRoad.vehicleIsEmpty;
+      });
     }
   }
 
-  private checkMdVehiclesAtBorder() {
-    if (this.widthCollapseVehiclesAtBorder.includes('col-md-4')) {
-      return 4;
-    } else if (this.widthCollapseVehiclesAtBorder.includes('col-md-8')) {
-      return 8;
-    } else {
-      return 12;
-    }
+  totalDataDashboard() {
+    this.refreshData();
+
+    DataDashboards.forEach(e => {
+      this.countCompanyVehicles += e.totalCompanyVehicles;
+      this.countVehiclesAreInStock += e.vehiclesAreInStock;
+      this.countVehicleIsEmpty += e.vehicleIsEmpty;
+
+      this.vehiclesAtBorder[0].valueField += e.vehiclesAtBorder.vehiclesAreInStock;
+      this.vehiclesAtBorder[1].valueField += e.vehiclesAtBorder.vehicleIsEmpty;
+
+      this.vehiclesOnTheRoad[0].valueField += e.vehiclesOnTheRoad.vehiclesAreInStock;
+      this.vehiclesOnTheRoad[1].valueField += e.vehiclesOnTheRoad.vehicleIsEmpty;
+    });
   }
+
+  private refreshData() {
+    this.countCompanyVehicles = 0;
+    this.countVehiclesAreInStock = 0;
+    this.countVehicleIsEmpty = 0;
+
+    this.vehiclesAtBorder = [
+      { argumentField: 'Phương tiện có hàng', valueField: 0 },
+      { argumentField: 'Phương tiện không hàng', valueField: 0 }
+    ];
+
+    this.vehiclesOnTheRoad = [
+      { argumentField: 'Phương tiện có hàng', valueField: 0 },
+      { argumentField: 'Phương tiện không hàng', valueField: 0 }
+    ];
+  }
+
 }

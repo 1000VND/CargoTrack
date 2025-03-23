@@ -24,37 +24,48 @@ button:hover {
 
     .dropdown {
         position: relative;
-    
-        .dropdown-menu{
+
+        .dropdown-menu {
             display: none;
+
+            a.dropdown-item.active {
+                background-color: #e9ecef;
+                color: var(--bs-body-color);
+            }
         }
-    
+
         .dropdown-parent {
             display: none;
             position: absolute;
             inset: 0px 0px auto auto;
             margin: 0px;
             transform: translate(0px, 34px);
-            min-width: 150px;
+            min-width: 120px;
+            padding-top: 0;
+            padding-bottom: 0;
         }
-    
+
         .dropdown-submenu {
             position: relative;
-    
+
             .dropdown-child-left {
                 display: block;
                 position: absolute;
                 right: 100%;
-                top: 0;
-                min-width: 150px;
+                top: -1px;
+                min-width: 120px;
+                padding-top: 0;
+                padding-bottom: 0;
             }
-    
+
             .dropdown-child-right {
                 display: block;
                 position: absolute;
                 left: 100%;
-                top: 0;
-                min-width: 150px;
+                top: -1px;
+                min-width: 120px;
+                padding-top: 0;
+                padding-bottom: 0;
             }
         }
     }
@@ -63,5 +74,3 @@ button:hover {
         display: block;
     }
 }
-
-

@@ -61,19 +61,20 @@
 }
 
 @media (min-width: 576px) {
-    .w-33-custom {
-        width: 33.33%;
-    }
-
-    .w-66-custom {
-        width: 66.66%;
-    }
+   
 }
 
 @media (max-width: 575px) {
+}
 
-    .w-33-custom,
-    .w-66-custom {
-        width: auto;
-    }
+.width-33-custom {
+    width: 30%;
+}
+
+.width-66-custom {
+    width: 65%;
+}
+
+.width-100-custom {
+    width: 100%;
 }

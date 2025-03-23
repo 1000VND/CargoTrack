@@ -1,57 +1,164 @@
-import { Vehicle } from "../models/vehicle";
+import { DataDashboard } from './../models/data-dashboard';
 
-export const Vehicles: Vehicle[] = [
-    { type: '43C32955_C' },
-    { type: '43C56925_C' },
-    { type: '43C18226_C' },
-    { type: '43C80739_C' },
-    { type: '43C65218_C' },
-    { type: '43C39683_C' },
-    { type: '43C26347_C' },
-    { type: '43C91252_C' },
-    { type: '43C74087_C' },
-    { type: '43C32719_C' },
-    { type: '43C20908_C' },
-    { type: '43C11110_C' },
-    { type: '43C91726_C' },
-    { type: '43C14508_C' },
-    { type: '43C65893_C' },
-    { type: '43C57317_C' },
-    { type: '43C26042_C' },
-    { type: '43C73302_C' },
-    { type: '43C35184_C' },
-    { type: '43C11450_C' },
-    { type: '43C39520_C' },
-    { type: '43C17654_C' },
-    { type: '43C49369_C' },
-    { type: '43C32872_C' },
-    { type: '43C64491_C' },
-    { type: '43C30890_C' },
-    { type: '43C54227_C' },
-    { type: '43C22985_C' },
-    { type: '43C42134_C' },
-    { type: '43C48415_C' },
-    { type: '43C69842_C' },
-    { type: '43C65492_C' },
-    { type: '43C85432_C' },
-    { type: '43C92457_C' },
-    { type: '43C36798_C' },
-    { type: '43C97304_C' },
-    { type: '43C51472_C' },
-    { type: '43C48567_C' },
-    { type: '43C91537_C' },
-    { type: '43C27761_C' },
-    { type: '43C52920_C' },
-    { type: '43C67954_C' },
-    { type: '43C87565_C' },
-    { type: '43C47468_C' },
-    { type: '43C33185_C' },
-    { type: '43C28013_C' },
-    { type: '43C25895_C' },
-    { type: '43C61241_C' },
-    { type: '43C92657_C' },
-    { type: '43C63584_C' },
-    { type: '43C71892_C' },
-    { type: '43C10847_C' },
-    { type: '43C53211_C' }
+export const DataDashboards: DataDashboard[] = [
+    {
+        vehicle: '43C32955_C',
+        totalCompanyVehicles: 85,
+        vehiclesAreInStock: 0,
+        vehicleIsEmpty: 85,
+        vehiclesAtBorder: { vehiclesAreInStock: 0, vehicleIsEmpty: 20 },
+        vehiclesOnTheRoad: { vehiclesAreInStock: 0, vehicleIsEmpty: 40 }
+    },
+    {
+        vehicle: '43C56925_C',
+        totalCompanyVehicles: 70,
+        vehiclesAreInStock: 10,
+        vehicleIsEmpty: 60,
+        vehiclesAtBorder: { vehiclesAreInStock: 5, vehicleIsEmpty: 15 },
+        vehiclesOnTheRoad: { vehiclesAreInStock: 5, vehicleIsEmpty: 30 }
+    },
+    {
+        vehicle: '43C18226_C',
+        totalCompanyVehicles: 90,
+        vehiclesAreInStock: 20,
+        vehicleIsEmpty: 70,
+        vehiclesAtBorder: { vehiclesAreInStock: 5, vehicleIsEmpty: 20 },
+        vehiclesOnTheRoad: { vehiclesAreInStock: 5, vehicleIsEmpty: 30 }
+    },
+    {
+        vehicle: '43C80739_C',
+        totalCompanyVehicles: 75,
+        vehiclesAreInStock: 5,
+        vehicleIsEmpty: 70,
+        vehiclesAtBorder: { vehiclesAreInStock: 0, vehicleIsEmpty: 15 },
+        vehiclesOnTheRoad: { vehiclesAreInStock: 0, vehicleIsEmpty: 25 }
+    },
+    {
+        vehicle: '43C65218_C',
+        totalCompanyVehicles: 65,
+        vehiclesAreInStock: 5,
+        vehicleIsEmpty: 60,
+        vehiclesAtBorder: { vehiclesAreInStock: 2, vehicleIsEmpty: 10 },
+        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 20 }
+    },
+    {
+        vehicle: '43C39683_C',
+        totalCompanyVehicles: 88,
+        vehiclesAreInStock: 8,
+        vehicleIsEmpty: 80,
+        vehiclesAtBorder: { vehiclesAreInStock: 2, vehicleIsEmpty: 20 },
+        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 35 }
+    },
+    {
+        vehicle: '43C26347_C',
+        totalCompanyVehicles: 100,
+        vehiclesAreInStock: 15,
+        vehicleIsEmpty: 85,
+        vehiclesAtBorder: { vehiclesAreInStock: 3, vehicleIsEmpty: 25 },
+        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 40 }
+    },
+    {
+        vehicle: '43C91252_C',
+        totalCompanyVehicles: 60,
+        vehiclesAreInStock: 5,
+        vehicleIsEmpty: 55,
+        vehiclesAtBorder: { vehiclesAreInStock: 1, vehicleIsEmpty: 10 },
+        vehiclesOnTheRoad: { vehiclesAreInStock: 1, vehicleIsEmpty: 20 }
+    },
+    {
+        vehicle: '43C74087_C',
+        totalCompanyVehicles: 78,
+        vehiclesAreInStock: 8,
+        vehicleIsEmpty: 70,
+        vehiclesAtBorder: { vehiclesAreInStock: 2, vehicleIsEmpty: 15 },
+        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 30 }
+    },
+    {
+        vehicle: '43C32719_C',
+        totalCompanyVehicles: 95,
+        vehiclesAreInStock: 10,
+        vehicleIsEmpty: 85,
+        vehiclesAtBorder: { vehiclesAreInStock: 3, vehicleIsEmpty: 25 },
+        vehiclesOnTheRoad: { vehiclesAreInStock: 3, vehicleIsEmpty: 40 }
+    },
+    {
+        vehicle: '43C20908_C',
+        totalCompanyVehicles: 67,
+        vehiclesAreInStock: 7,
+        vehicleIsEmpty: 60,
+        vehiclesAtBorder: { vehiclesAreInStock: 1, vehicleIsEmpty: 15 },
+        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 30 }
+    },
+    {
+        vehicle: '43C63584_C',
+        totalCompanyVehicles: 82,
+        vehiclesAreInStock: 12,
+        vehicleIsEmpty: 70,
+        vehiclesAtBorder: { vehiclesAreInStock: 3, vehicleIsEmpty: 20 },
+        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 35 }
+    },
+    {
+        vehicle: '43C92657_C',
+        totalCompanyVehicles: 90,
+        vehiclesAreInStock: 10,
+        vehicleIsEmpty: 80,
+        vehiclesAtBorder: { vehiclesAreInStock: 4, vehicleIsEmpty: 20 },
+        vehiclesOnTheRoad: { vehiclesAreInStock: 4, vehicleIsEmpty: 40 }
+    },
+    {
+        vehicle: '43C61241_C',
+        totalCompanyVehicles: 84,
+        vehiclesAreInStock: 14,
+        vehicleIsEmpty: 70,
+        vehiclesAtBorder: { vehiclesAreInStock: 2, vehicleIsEmpty: 20 },
+        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 35 }
+    },
+    {
+        vehicle: '43C25895_C',
+        totalCompanyVehicles: 92,
+        vehiclesAreInStock: 12,
+        vehicleIsEmpty: 80,
+        vehiclesAtBorder: { vehiclesAreInStock: 3, vehicleIsEmpty: 25 },
+        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 38 }
+    },
+    {
+        vehicle: '43C33185_C',
+        totalCompanyVehicles: 88,
+        vehiclesAreInStock: 8,
+        vehicleIsEmpty: 80,
+        vehiclesAtBorder: { vehiclesAreInStock: 3, vehicleIsEmpty: 20 },
+        vehiclesOnTheRoad: { vehiclesAreInStock: 3, vehicleIsEmpty: 40 }
+    },
+    {
+        vehicle: '43C28013_C',
+        totalCompanyVehicles: 79,
+        vehiclesAreInStock: 9,
+        vehicleIsEmpty: 70,
+        vehiclesAtBorder: { vehiclesAreInStock: 2, vehicleIsEmpty: 18 },
+        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 30 }
+    },
+    {
+        vehicle: '43C71892_C',
+        totalCompanyVehicles: 86,
+        vehiclesAreInStock: 11,
+        vehicleIsEmpty: 75,
+        vehiclesAtBorder: { vehiclesAreInStock: 2, vehicleIsEmpty: 20 },
+        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 35 }
+    },
+    {
+        vehicle: '43C10847_C',
+        totalCompanyVehicles: 81,
+        vehiclesAreInStock: 11,
+        vehicleIsEmpty: 70,
+        vehiclesAtBorder: { vehiclesAreInStock: 2, vehicleIsEmpty: 19 },
+        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 36 }
+    },
+    {
+        vehicle: '43C53211_C',
+        totalCompanyVehicles: 96,
+        vehiclesAreInStock: 16,
+        vehicleIsEmpty: 80,
+        vehiclesAtBorder: { vehiclesAreInStock: 3, vehicleIsEmpty: 22 },
+        vehiclesOnTheRoad: { vehiclesAreInStock: 3, vehicleIsEmpty: 40 }
+    }
 ];
