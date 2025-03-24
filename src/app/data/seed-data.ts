@@ -464,28 +464,4 @@ export const VehiclesAtPort: any[] = [
         name: 'Bãi xe 223 Trường Chinh',
         value: 34,
     },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
 ];
