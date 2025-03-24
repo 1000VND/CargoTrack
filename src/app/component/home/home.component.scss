@@ -38,12 +38,17 @@
             max-width: 100%;
         }
 
+        .canvas-container{
+            height: 43vh; 
+            width: 99%;
+        }
+
     }
 
     .dx-chart .dxc-val-axis .dxc-val-title {
-        transform: translateY(-20px); 
+        transform: translateY(-20px);
     }
-    
+
 }
 
 @media (max-width: 767px) {
@@ -58,23 +63,30 @@
         width: 0;
     }
 
+    .canvas-container{
+        width: 95% !important;
+    }
 }
 
 @media (min-width: 576px) {
-   
+    .w-33-custom {
+        width: 33%;
+    }
+
+    .w-66-custom {
+        width: 66.45%;
+    }
+
+    .width-33-custom {
+        width: 33%;
+    }
+    
+    .width-66-custom {
+        width: 66.45%;
+    }
+    
+    .width-100-custom {
+        width: 100%;
+    }
 }
 
-@media (max-width: 575px) {
-}
-
-.width-33-custom {
-    width: 30%;
-}
-
-.width-66-custom {
-    width: 65%;
-}
-
-.width-100-custom {
-    width: 100%;
-}

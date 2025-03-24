@@ -162,3 +162,330 @@ export const DataDashboards: DataDashboard[] = [
         vehiclesOnTheRoad: { vehiclesAreInStock: 3, vehicleIsEmpty: 40 }
     }
 ];
+
+export const VehiclesAtPort: any[] = [
+    {
+        name: '504',
+        value: 6,
+    },
+    {
+        name: 'A Minh',
+        value: 8,
+    },
+    {
+        name: 'A. Bữu (Đại đồng, Đại lộc)',
+        value: 10
+    },
+    {
+        name: 'An Lợi Tinh',
+        value: 12,
+    },
+    {
+        name: 'An Phú Tài',
+        value: 14,
+    },
+    {
+        name: 'Anh Bửu (Giác trầm làm hương)',
+        value: 16,
+    },
+    {
+        name: 'Bãi 1/4 VCS Quy nhơn',
+        value: 18,
+    },
+    {
+        name: 'Bãi Container Chân Thật',
+        value: 20,
+    },
+    {
+        name: 'Bãi Container Cty Hoàng Bảo Anh',
+        value: 22,
+    },
+    {
+        name: 'Bãi Container Hoàng Bảo Anh',
+        value: 24,
+    },
+    {
+        name: 'Bãi Container Hoàng Bảo Anh (KCN PBAI)',
+        value: 26,
+    },
+    {
+        name: 'Bãi Dăm Bạch đàn',
+        value: 28,
+    },
+    {
+        name: 'Bãi Tân Thanh (container Hòa Cầm)',
+        value: 30,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+    {
+        name: 'Bãi X50',
+        value: 32,
+    },
+    {
+        name: 'Bãi xe 223 Trường Chinh',
+        value: 34,
+    },
+];

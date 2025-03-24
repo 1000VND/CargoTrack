@@ -20,7 +20,7 @@
                   [defaultLabel]="'Chọn phương tiện'" (ngModelChange)="calculateDashboardTotalsBySelection()"></ba-multiselect>
               </div>
               <div class="col-auto pe-0">
-                <button type="button" class="btn btn-primary d-flex align-items-center justify-content-center" (click)="totalDataDashboard()">
+                <button type="button" class="btn btn-primary d-flex align-items-center justify-content-center" (click)="totalDataDashboard(); refreshMultiSelect()">
                   <i class="fa-solid fa-rotate-right text-white"></i>
                 </button>
               </div>
@@ -31,14 +31,14 @@
     </div>
 
     <!-- Widget thứ 2 -->
-    <div [ngClass]="'w-' + widthCollapseCompanyOverview">
+    <div [ngClass]="widthCollapseCompanyOverview">
       <ba-collapse 
         [headerText]="'TỔNG QUAN CÔNG TY'" 
         [isCollapsed]="isCollapsedCompanyOverview"
-        [dropdownSubSide]="'left'" 
+        [dropdownSubSide]="ddSideCompanyOverview" 
         (toggleCollapse)="isCollapsedCompanyOverview = !isCollapsedCompanyOverview"
-        (reload)="onReload()" 
-        (changeWidth)="onChangeWidth($event, 'widthCollapseCompanyOverview')">
+        (reload)="onReload('companyOverview')" 
+        (changeWidth)="onChangeWidth($event, 'widthCollapseCompanyOverview', 'ddSideCompanyOverview')">
       </ba-collapse>
 
       <div class="collapse" [ngClass]="{'show': !isCollapsedCompanyOverview}">
@@ -57,7 +57,7 @@
               <div class="d-flex flex-column text-start p-2">
                 <span class="fw-semibold">Phương tiện có hàng</span>
                 <span class="col fw-semibold my-2">{{countVehiclesAreInStock}} Phương tiện</span>
-                <p>{{((countVehiclesAreInStock/countCompanyVehicles) * 100).toFixed(2) }}% / Tổng phương tiện</p>
+                <p>{{((countVehiclesAreInStock/countCompanyVehicles) * 100).toFixed(0) }}% / Tổng phương tiện</p>
               </div>
             </div>
 
@@ -66,7 +66,7 @@
               <div class="d-flex flex-column text-start p-2">
                 <span class="fw-semibold">Phương tiện không hàng</span>
                 <span class="col fw-semibold my-2">{{countVehicleIsEmpty}} Phương tiện</span>
-                <p>{{((countVehicleIsEmpty/countCompanyVehicles) * 100).toFixed(2) }}% / Tổng phương tiện</p>
+                <p>{{((countVehicleIsEmpty/countCompanyVehicles) * 100).toFixed(0) }}% / Tổng phương tiện</p>
               </div>
             </div>
           </div>
@@ -76,14 +76,14 @@
 
     <!-- Widget thứ 3 -->
     <div class="row d-flex gap-2 m-0">
-      <div class="col-12 p-0 pb-2 pb-md-0" [ngClass]="widthCollapseVehiclesAtBorder.width">
+      <div class="col-12 p-0 pb-md-0" [ngClass]="widthCollapseVehiclesAtBorder">
         <ba-collapse 
           [headerText]="'PHƯƠNG TIỆN TẠI CỬA KHẨU'" 
           [isCollapsed]="isCollapsedVehiclesAtBorder"
           [dropdownSubSide]="'right'" 
           (toggleCollapse)="isCollapsedVehiclesAtBorder = !isCollapsedVehiclesAtBorder"
-          (reload)="onReload()" 
-          (changeWidth)="onChangeWidthVehiclesAtBorder($event)">
+          (reload)="onReload('vehiclesAtBorder')" 
+          (changeWidth)="onChangeWidthWidget3($event, 'widthCollapseVehiclesAtBorder')">
         </ba-collapse>
 
         <div class="collapse" [ngClass]="{'show': !isCollapsedVehiclesAtBorder}">
@@ -120,14 +120,14 @@
         </div>
       </div>
 
-      <div class="col-12 p-0 pb-2 pb-md-0" [ngClass]="widthCollapseVehiclesOnTheRoad.width">
+      <div class="col-12 p-0 pb-md-0" [ngClass]="widthCollapseVehiclesOnTheRoad">
         <ba-collapse 
           [headerText]="'PHƯƠNG TIỆN TRÊN ĐƯỜNG'" 
           [isCollapsed]="isCollapsedVehiclesOnTheRoad"
           [dropdownSubSide]="'left'" 
           (toggleCollapse)="isCollapsedVehiclesOnTheRoad = !isCollapsedVehiclesOnTheRoad"
-          (reload)="onReload()" 
-          (changeWidth)="onChangeWidthVehiclesOnTheRoad($event)">
+          (reload)="onReload('vehiclesOnTheRoad')" 
+          (changeWidth)="onChangeWidthWidget3($event, 'widthCollapseVehiclesOnTheRoad')">
         </ba-collapse>
 
         <div class="collapse" [ngClass]="{'show': !isCollapsedVehiclesOnTheRoad}">
@@ -165,19 +165,22 @@
         </div>
       </div>
 
-      <div class="col-12 p-0 pb-md-0" [ngClass]="widthCollapseVehiclesAtFactory.width">
+      <div class="col-12 p-0 pb-md-0" [ngClass]="widthCollapseVehiclesAtFactory">
         <ba-collapse 
           [headerText]="'PHƯƠNG TIỆN TẠI NHÀ MÁY'" 
           [isCollapsed]="isCollapsedVehiclesAtFactory"
           [dropdownSubSide]="'left'" 
           (toggleCollapse)="isCollapsedVehiclesAtFactory = !isCollapsedVehiclesAtFactory"
-          (reload)="onReload()" 
-          (changeWidth)="onChangeWidthVehiclesAtFactory($event)">
+          (reload)="onReload('vehiclesAtFactory')" 
+          (changeWidth)="onChangeWidthWidget3($event, 'widthCollapseVehiclesAtFactory')">
         </ba-collapse>
 
         <div class="collapse" [ngClass]="{'show': !isCollapsedVehiclesAtFactory}">
           <div class="card-body d-flex justify-content-center p-0 m-3">
-            <dx-chart #barChart id="chart" [dataSource]="vehiclesAtFactory" class="responsive-chart">
+            <div class="canvas-container">
+              <canvas #barChartVehiclesAtFactory></canvas>
+            </div>
+            <!-- <dx-chart #barChart id="chart" [dataSource]="vehiclesAtFactory" class="responsive-chart">
               <dxi-series argumentField="name" valueField="value" name="dxiSeries" type="bar" color="#dc143c"
                 [barWidth]="50">
                 <dxo-label [visible]="true" [customizeText]="customizeBarLabel" [backgroundColor]="'transparent'">
@@ -194,25 +197,29 @@
                 <dxo-title text="Số phương tiện"></dxo-title>
               </dxi-value-axis>
               <dxo-legend [visible]="false"></dxo-legend>
-            </dx-chart>
+            </dx-chart> -->
           </div>
         </div>
       </div>
     </div>
 
-    <div class="col-12 p-0" [ngClass]="'w-' + widthCollapseVehiclesAtPort">
+    <div class="col-12 p-0 pb-2" [ngClass]="widthCollapseVehiclesAtPort">
       <ba-collapse 
         [headerText]="'PHƯƠNG TIỆN TẠI CẢNG'"
         [isCollapsed]="isCollapsedVehiclesAtPort"
-        [dropdownSubSide]="'left'" 
+        [dropdownSubSide]="ddSideVehiclesAtPort" 
         (toggleCollapse)="isCollapsedVehiclesAtPort = !isCollapsedVehiclesAtPort"
-        (reload)="onReload()" 
-        (changeWidth)="onChangeWidth($event, 'widthCollapseVehiclesAtPort')">
+        (reload)="onReload('vehiclesAtPort')" 
+        (changeWidth)="onChangeWidth($event, 'widthCollapseVehiclesAtPort', 'ddSideVehiclesAtPort')">
       </ba-collapse>
 
       <div class="collapse" [ngClass]="{'show': !isCollapsedVehiclesAtPort}">
-        <div class="card-body d-flex justify-content-center p-0 m-3">
-          <dx-chart #barChart id="chart" [dataSource]="vehiclesAtPort" class="responsive-chart">
+        <div class="card-body d-flex justify-content-start p-0 m-3" style="width: 99%;">
+          <div class="canvas-container" style="overflow-x: auto; overflow-y: hidden;">
+            <div style="height: 100%; width: 1vw;">
+              <canvas #barChartVehiclesAtPort [style.width.px]="vehiclesAtPort.length * 120" style="height: 100%;"></canvas>
+            </div>
+          <!-- <dx-chart #barChart id="chart" [dataSource]="vehiclesAtPort" class="responsive-chart">
             <dxo-zoom-and-pan argumentAxis="both"></dxo-zoom-and-pan>
             <dxi-series 
               argumentField="name" 
@@ -232,15 +239,15 @@
             </dxo-argument-axis>
             
             <dxi-value-axis > 
-              <!-- [tickInterval]="1" [maxValueMargin]="1" -->
               <dxo-title text="Số phương tiện"></dxo-title>
             </dxi-value-axis>
             <dxo-scroll-bar [visible]="true" [position]="'bottom'" [offset]="30"></dxo-scroll-bar>
 
             <dxo-legend [visible]="false"></dxo-legend>
-          </dx-chart>
+          </dx-chart> -->
         </div>
       </div>
     </div>
   </div>
 </div>
+
