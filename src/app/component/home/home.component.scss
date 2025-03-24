@@ -38,11 +38,10 @@
             max-width: 100%;
         }
 
-        .canvas-container{
-            height: 43vh; 
+        .canvas-container {
+            height: 43vh;
             width: 99%;
         }
-
     }
 
     .dx-chart .dxc-val-axis .dxc-val-title {
@@ -63,12 +62,12 @@
         width: 0;
     }
 
-    .canvas-container{
+    .canvas-container {
         width: 95% !important;
     }
 }
 
-@media (min-width: 576px) {
+@media (min-width: 768px) {
     .w-33-custom {
         width: 33%;
     }
@@ -80,13 +79,12 @@
     .width-33-custom {
         width: 33%;
     }
-    
+
     .width-66-custom {
         width: 66.45%;
     }
-    
+
     .width-100-custom {
         width: 100%;
     }
 }
-
