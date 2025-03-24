@@ -180,7 +180,7 @@ export class HomeComponent implements OnInit {
           y: {
             beginAtZero: true, // Trục Y bắt đầu từ 0
             title: {
-              display: true,
+              display: false,
               text: 'Số phương tiện', // Tiêu đề trục Y
               font: {
                 size: 12
@@ -273,7 +273,7 @@ export class HomeComponent implements OnInit {
           y: {
             beginAtZero: true, // Bắt đầu trục Y từ 0
             title: {
-              display: true,
+              display: false,
               text: 'Số phương tiện', // Tiêu đề trục Y
               font: {
                 size: 12
