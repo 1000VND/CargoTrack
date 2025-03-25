@@ -4,8 +4,8 @@ import { AppBaseModule } from '../../../app-base.module';
 
 @Component({
   selector: 'ba-multiselect',
-  templateUrl: './multiSelect.component.html',
-  styleUrls: ['./multiSelect.component.scss'],
+  templateUrl: './multi-select.component.html',
+  styleUrls: ['./multi-select.component.scss'],
   imports: [AppBaseModule],
   providers: [
     {
@@ -43,6 +43,7 @@ export class MultiSelectComponent implements OnInit {
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }
+
   registerOnTouched(fn: any): void { }
 
   changeValue(e: any) {

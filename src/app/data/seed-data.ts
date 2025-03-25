@@ -465,3 +465,18 @@ export const VehiclesAtPort: any[] = [
         value: 34,
     },
 ];
+
+export const VehiclesAtFactory: any[] = [
+    {
+        name: 'Cty Sedovina (trang thiết bị trường học)',
+        value: 2,
+    },
+    {
+        name: 'Keyhinge Hòa Cầm',
+        value: 1,
+    },
+    {
+        name: 'Sợi Phú Nam',
+        value: 1,
+    }
+];

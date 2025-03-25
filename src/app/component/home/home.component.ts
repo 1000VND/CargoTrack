@@ -1,9 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AppBaseModule } from '../../app-base.module';
-import { DataDashboards, VehiclesAtPort } from '../../data/seed-data';
+import { DataDashboards, VehiclesAtFactory, VehiclesAtPort } from '../../data/seed-data';
 import { CollapseComponent } from "../common/collapse/collapse.component";
-import { MultiSelectComponent } from '../common/multiselect/multiselect.component';
-import { PercentPipe } from '@angular/common';
+import { MultiSelectComponent } from '../common/multi-select/multi-select.component';
 import Chart from 'chart.js/auto';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
@@ -19,72 +18,53 @@ export class HomeComponent implements OnInit {
   @ViewChild('barChartVehiclesAtFactory') barChartVehiclesAtFactory!: ElementRef;
   @ViewChild('barChartVehiclesAtPort') barChartVehiclesAtPort!: ElementRef;
 
-  chartVehiclesAtFactory!: Chart;
-  chartVehiclesAtPort!: Chart;
   [key: string]: any;
 
   vehicles: { label: string; value: string | undefined | null }[] = [];
-  selected: string[] = [];
-  dynamicFontSize: number | undefined;
-  categories: string[] = [];
+  selectedItems: string[] = [];
+
+  // Widget 2
   ddSideCompanyOverview: string = 'left';
-  ddSideVehiclesAtPort: string = 'left';
   isCollapsedCompanyOverview: boolean = false;
-  isCollapsedVehiclesAtBorder: boolean = false;
-  isCollapsedVehiclesOnTheRoad: boolean = false;
-  isCollapsedVehiclesAtFactory: boolean = false;
-  isCollapsedVehiclesAtPort: boolean = false;
   widthCollapseCompanyOverview: string = 'auto';
-  widthCollapseVehiclesAtBorder: string = 'width-33-custom flex-grow-1';
-  widthCollapseVehiclesOnTheRoad: string = 'width-33-custom flex-grow-1';
-  widthCollapseVehiclesAtFactory: string = 'width-33-custom flex-grow-1';
-  widthCollapseVehiclesAtPort: string = '';
   countCompanyVehicles: number = 0;
   countVehiclesAreInStock: number = 0;
   countVehicleIsEmpty: number = 0;
 
-  pipe = new PercentPipe('en-US');
-  customPalette = ['#509447', '#e2803c'];
-
+  // Doughnut 1 Widget 3
+  isCollapsedVehiclesAtBorder: boolean = false;
+  widthCollapseVehiclesAtBorder: string = 'w-33-widget3 flex-grow-1';
   vehiclesAtBorder: { argumentField: string; valueField: number }[] = [
     { argumentField: 'Phương tiện có hàng', valueField: 0 },
     { argumentField: 'Phương tiện không hàng', valueField: 0 }
   ];
+
+  // Doughnut 2 Widget 3
+  isCollapsedVehiclesOnTheRoad: boolean = false;
+  widthCollapseVehiclesOnTheRoad: string = 'w-33-widget3 flex-grow-1';
   vehiclesOnTheRoad: { argumentField: string; valueField: number }[] = [
     { argumentField: 'Phương tiện có hàng', valueField: 0 },
     { argumentField: 'Phương tiện không hàng', valueField: 0 }
   ];
 
-  vehiclesAtFactory: any[] = [
-    {
-      name: 'Cty Sedovina (trang thiết bị trường học)',
-      value: 2,
-    },
-    {
-      name: 'Keyhinge Hòa Cầm',
-      value: 1,
-    },
-    {
-      name: 'Sợi Phú Nam',
-      value: 1,
-    }
-  ];
+  // Bar Chart Widget 3
+  chartVehiclesAtFactory!: Chart;
+  isCollapsedVehiclesAtFactory: boolean = false;
+  widthCollapseVehiclesAtFactory: string = 'w-33-widget3 flex-grow-1';
+  vehiclesAtFactory: any[] = [];
+
+  // Widget 4
+  chartVehiclesAtPort!: Chart;
+  ddSideVehiclesAtPort: string = 'left';
+  isCollapsedVehiclesAtPort: boolean = false;
+  widthCollapseVehiclesAtPort: string = '';
   vehiclesAtPort: any[] = [];
 
-  customizeTooltip = ({ valueText, percent }: { valueText: string, percent: number }) => ({
-    text: `${valueText} - ${this.pipe.transform(percent, '1.2-2')}`,
-  });
-
-  customizeLabel(e: any) {
-    const percentage = e.percent * 100;
-    return `${e.value} Phương tiện (${percentage.toFixed(0)}%)`;
-  }
-
-  customizeBarLabel(e: any) {
-    return e.valueText;
-  }
+  // Custom màu cho Doughnut Chart
+  customPalette = ['#509447', '#e2803c'];
 
   constructor() {
+    // Lấy dữ liệu cho Multi-Select
     DataDashboards.forEach(e => {
       this.vehicles.push({
         value: e.vehicle,
@@ -92,8 +72,10 @@ export class HomeComponent implements OnInit {
       })
     });
 
+    // Lấy dữ liệu cho dashboard lần đầu
     this.totalDataDashboard();
 
+    // Lấy dữ liệu cho dashboard sau mỗi 5 phút
     setInterval(() => {
       this.totalDataDashboard();
       console.log('refresh data sau 5p')
@@ -101,7 +83,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.vehiclesAtPort = [...VehiclesAtPort];
+    this.vehiclesAtFactory = [...VehiclesAtFactory]; // Push dữ liệu cho Bar Chart Widget 3
+    this.vehiclesAtPort = [...VehiclesAtPort]; // Push dữ liệu Widget 4
   }
 
   ngAfterViewInit(): void {
@@ -109,18 +92,62 @@ export class HomeComponent implements OnInit {
     this.renderBarChartVehiclesAtPort();
   }
 
+  /**
+   * Custom Label cho Chart
+   * @param e 
+   * @returns  
+   */
+  customizeLabel(e: any) {
+    const percentage = e.percent * 100;
+    return `${e.value} Phương tiện (${percentage.toFixed(0)}%)`;
+  }
+
+  /**
+   * Label cho Bar
+   * @param e 
+   * @returns  
+   */
+  customizeBarLabel(e: any) {
+    return e.valueText;
+  }
+
+  /**
+   * Lấy màu cho Marker của Chart
+   * @param item 
+   * @returns  
+   */
+  getMarkerColor(item: any) {
+    return item.visible ? item.marker.fill : '#eee';
+  }
+
+  /**
+   * Tính tổng giá trị của Pie Chart
+   * @param pieChart 
+   * @returns  
+   */
+  calculateTotal(pieChart: any) {
+    let total = 0;
+    pieChart.getDataSource()._items.forEach((item: any) => {
+      total += item.valueField;
+    });
+    return total;
+  }
+
+  /**
+   * Tạo ra Bar Chart của Widget 3
+   */
   renderBarChartVehiclesAtFactory() {
     const canvas = this.barChartVehiclesAtFactory.nativeElement; // Truy cập phần tử <canvas> từ ViewChild
-  
+
     // Tạo mảng label cho trục X, mỗi label được chia thành các dòng (3 từ mỗi dòng)
     // const wordsPerLine = window.innerWidth < 768 ? 2 : 3;
     const labels = this.vehiclesAtFactory.map(item =>
       this.splitLabelByWords(item.name, 2)
     );
-  
+
     // Lấy mảng dữ liệu tương ứng số phương tiện
     const data = this.vehiclesAtFactory.map(item => item.value);
-  
+
     // Khởi tạo biểu đồ
     this.chartVehiclesAtFactory = new Chart(canvas, {
       type: 'bar', // Biểu đồ dạng cột dọc
@@ -138,7 +165,7 @@ export class HomeComponent implements OnInit {
         maintainAspectRatio: false, // Không giữ nguyên tỉ lệ khung hình
         resizeDelay: 0, // Không delay khi resize
         onResize: this.resizeChartVehiclesAtFactory, // Hàm xử lý khi resize canvas
-  
+
         // Cấu hình plugin
         plugins: {
           legend: {
@@ -163,7 +190,7 @@ export class HomeComponent implements OnInit {
             formatter: (value) => `${value}` // Hiển thị số lượng trên đầu cột
           }
         },
-  
+
         // Cấu hình trục
         scales: {
           x: {
@@ -193,7 +220,7 @@ export class HomeComponent implements OnInit {
             max: Math.max(...data) + 3 // Tăng giới hạn Y lên để không che số trên đầu cột
           }
         },
-  
+
         layout: {
           padding: {
             top: 30 // Thêm khoảng trắng phía trên để vẽ thêm tiêu đề nếu cần
@@ -203,6 +230,9 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  /**
+   * Tạo ra Bar Chart của Widget 4
+   */
   renderBarChartVehiclesAtPort() {
     this.vehiclesAtPort = [...VehiclesAtPort];
 
@@ -291,7 +321,12 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  onReload(data: any) {
+  /**
+   * Làm mới lại từng Widget
+   * @param data 
+   */
+  reloadOnClick(data: any) {
+    // Widget 2
     if (data === 'companyOverview') {
       this.countCompanyVehicles = 0;
       this.countVehiclesAreInStock = 0;
@@ -302,7 +337,7 @@ export class HomeComponent implements OnInit {
         this.countVehiclesAreInStock += e.vehiclesAreInStock;
         this.countVehicleIsEmpty += e.vehicleIsEmpty;
       });
-    } else if (data === 'vehiclesAtBorder') {
+    } else if (data === 'vehiclesAtBorder') { // Doughnut thứ 1 của Widget 3
       this.vehiclesAtBorder = [
         { argumentField: 'Phương tiện có hàng', valueField: 0 },
         { argumentField: 'Phương tiện không hàng', valueField: 0 }
@@ -312,7 +347,7 @@ export class HomeComponent implements OnInit {
         this.vehiclesAtBorder[0].valueField += e.vehiclesAtBorder.vehiclesAreInStock;
         this.vehiclesAtBorder[1].valueField += e.vehiclesAtBorder.vehicleIsEmpty;
       });
-    } else if (data === 'vehiclesOnTheRoad') {
+    } else if (data === 'vehiclesOnTheRoad') { // Doughnut thứ 2 của Widget 3
       this.vehiclesOnTheRoad = [
         { argumentField: 'Phương tiện có hàng', valueField: 0 },
         { argumentField: 'Phương tiện không hàng', valueField: 0 }
@@ -323,17 +358,23 @@ export class HomeComponent implements OnInit {
         this.vehiclesOnTheRoad[1].valueField += e.vehiclesOnTheRoad.vehicleIsEmpty;
       });
     }
-    else if (data === 'vehiclesAtFactory') {
+    else if (data === 'vehiclesAtFactory') { // Bar Chart của Widget 3
       this.vehiclesAtFactory = [...this.vehiclesAtFactory];
       if (this.chartVehiclesAtFactory) {
         this.chartVehiclesAtFactory.destroy();
       }
       this.renderBarChartVehiclesAtFactory();
-    } else if (data === 'vehiclesAtPort') {
+    } else if (data === 'vehiclesAtPort') { // Bar Chart của Widget 4
       this.vehiclesAtPort = [...VehiclesAtPort];
     }
   }
 
+  /**
+   * Thay đổi chiều rộng của các Widget (Không có Widget 3)
+   * @param width Chiều rộng mong muốn
+   * @param param Giá trị chiều rộng
+   * @param side Vị trí của DropDown
+   */
   onChangeWidth(width: number, param: string, side: string) {
     switch (width) {
       case 1:
@@ -358,41 +399,44 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  /**
+   * Thay đổi chiều rộng của Widget thứ 3
+   * @param width 
+   * @param param 
+   */
   onChangeWidthWidget3(width: number, param: string) {
     switch (width) {
       case 1:
-        this[param] = 'width-33-custom';
+        this[param] = 'w-33-widget3';
         break;
       case 2:
-        this[param] = 'width-66-custom';
+        this[param] = 'w-66-widget3';
         break;
       case 3:
-        this[param] = 'width-100-custom';
+        this[param] = 'w-100-widget3';
         break;
       default:
-        this[param] = 'width-33-custom flex-grow-1';
+        this[param] = 'w-33-widget3 flex-grow-1';
         break;
     }
   }
 
-  calculateTotal(pieChart: any) {
-    let total = 0;
-    pieChart.getDataSource()._items.forEach((item: any) => {
-      total += item.valueField;
-    });
-    return total;
+  /**
+   * Làm mới các giá trị trong Multi-Select
+   */
+  refreshMultiSelect() {
+    this.selectedItems = []
   }
 
-  getMarkerColor(item: any) {
-    return item.visible ? item.marker.fill : '#eee';
-  }
-
+  /**
+   * Lấy dữ liệu của tất cả các Widget khi Select các giá trị của Combobox
+   */
   calculateDashboardTotalsBySelection() {
-    if (this.selected.length === 0 || this.selected[0].includes('Tất')) {
+    if (this.selectedItems.length === 0 || this.selectedItems[0].includes('Tất')) {
       this.totalDataDashboard();
     } else {
       this.refreshData();
-      DataDashboards.filter(e => this.selected.includes(e.vehicle)).forEach(e => {
+      DataDashboards.filter(e => this.selectedItems.includes(e.vehicle)).forEach(e => {
         this.countCompanyVehicles += e.totalCompanyVehicles;
         this.countVehiclesAreInStock += e.vehiclesAreInStock;
         this.countVehicleIsEmpty += e.vehicleIsEmpty;
@@ -406,6 +450,9 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  /**
+   * Lấy dữ liệu của tất cả Widget
+   */
   totalDataDashboard() {
     this.refreshData();
 
@@ -422,26 +469,34 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  refreshMultiSelect() {
-    this.selected = []
-  }
-
+  /**
+   * Làm mới lại toàn bộ dữ liệu
+   */
   private refreshData() {
+    // Làm mới lại dữ liệu của Widget thứ 1
     this.countCompanyVehicles = 0;
     this.countVehiclesAreInStock = 0;
     this.countVehicleIsEmpty = 0;
 
+    // Làm mới lại dữ liệu của Widget thứ 2
     this.vehiclesAtBorder = [
       { argumentField: 'Phương tiện có hàng', valueField: 0 },
       { argumentField: 'Phương tiện không hàng', valueField: 0 }
     ];
 
+    // Làm mới lại dữ liệu của Widget thứ 3
     this.vehiclesOnTheRoad = [
       { argumentField: 'Phương tiện có hàng', valueField: 0 },
       { argumentField: 'Phương tiện không hàng', valueField: 0 }
     ];
   }
-  
+
+  /**
+   * Cắt chuỗi cho label trục x của Chart
+   * @param text 
+   * @param [wordsPerLine] Số ký tự cần cắt
+   * @returns  
+   */
   private splitLabelByWords(text: string, wordsPerLine = 3) {
     const words = text.split(' ');
     const lines = [];
@@ -451,17 +506,24 @@ export class HomeComponent implements OnInit {
     return lines;
   }
 
+  /**
+   * Resizes chart vehicles at factory
+   * Tự động thay đổi kích thước của biểu đồ dựa trên kích thước của phần tử DOM chứa biểu đồ
+   */
   private resizeChartVehiclesAtFactory() {
     if (this.chartVehiclesAtFactory) {
       this.chartVehiclesAtFactory.resize();
     }
   }
 
+  /**
+   * Resizes chart vehicles at port
+   * Tự động thay đổi kích thước của biểu đồ dựa trên kích thước của phần tử DOM chứa biểu đồ
+   */
   private resizeChartVehiclesAtPort() {
     if (this.chartVehiclesAtPort) {
       this.chartVehiclesAtPort.resize();
     }
   }
-
 
 }

@@ -16,7 +16,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
   standalone: true
 })
 export class CollapseComponent implements OnInit {
-  @Input() headerText: string = 'Tiêu đề'; // Tiêu đề header
+  @Input() headerText: string = 'Tiêu đề'; // Tiêu đề
   @Input() isCollapsed: boolean = false; // Trạng thái thu gọn
   @Input() dropdownSubSide: string = 'left' // Vị trí dropdown
   @Input() isDisabledSubmenu: number | undefined | null = undefined; // Tắt chọn của item con
