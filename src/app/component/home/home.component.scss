@@ -92,3 +92,25 @@
         width: 100%;
     }
 }
+
+@media (min-width: 1200px) and (max-width: 1627px){
+    .w-33-custom {
+        width: 32.9%;
+    }
+
+    .w-66-custom {
+        width: 66.45%;
+    }
+
+    .w-33-widget3 {
+        width: 32.9%;
+    }
+
+    .w-66-widget3 {
+        width: 66.45%;
+    }
+
+    .w-100-widget3 {
+        width: 100%;
+    }
+}
