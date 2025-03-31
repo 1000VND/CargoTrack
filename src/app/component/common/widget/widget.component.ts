@@ -99,7 +99,7 @@ export class WidgetComponent implements OnInit {
     // Cấu hình độ rộng cho widget
     const widthConfig: { [key: number]: { widthWidget: string; widthWidgetCardItem: string } } = {
       1: { widthWidget: 'col-sm-3 flex-sm-grow-1', widthWidgetCardItem: 'col-12' },
-      2: { widthWidget: 'col-sm-7 flex-sm-grow-1', widthWidgetCardItem: 'col-12 col-sm-3' },
+      2: { widthWidget: 'col-sm-8', widthWidgetCardItem: 'col-12 col-sm-3' },
       3: { widthWidget: 'col-sm-12 flex-sm-grow-1', widthWidgetCardItem: 'col-12 col-sm-3' },
       0: { widthWidget: 'col-sm-12 flex-sm-grow-1', widthWidgetCardItem: 'col-12 col-sm-3' }
     };
@@ -109,7 +109,7 @@ export class WidgetComponent implements OnInit {
       1: { widthWidget: 'col-sm-4 pe-1', widthWidgetCardItem: 'col-12' },
       2: { widthWidget: 'col-sm-8 pe-1', widthWidgetCardItem: 'col-12 col-sm-3' },
       3: { widthWidget: 'col-sm-12', widthWidgetCardItem: 'col-12 col-sm-3' },
-      0: { widthWidget: 'col-sm-12', widthWidgetCardItem: 'col-12 col-sm-3' }
+      0: { widthWidget: 'col-sm-3 flex-sm-grow-1', widthWidgetCardItem: 'col-12 col-sm-3' }
     };
 
     const config = this.isLastWidget ? widthConfigLastChild[value] : widthConfig[value];
