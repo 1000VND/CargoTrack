@@ -1,5 +1,6 @@
 :host ::ng-deep {
     ng-select {
+        width: 100%;
         .ng-select-container.ng-has-value>.ng-value-container {
             flex-wrap: nowrap;
             overflow-x: auto;

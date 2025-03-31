@@ -3,480 +3,484 @@ import { DataDashboard } from './../models/data-dashboard';
 export const DataDashboards: DataDashboard[] = [
     {
         vehicle: '43C32955_C',
-        totalCompanyVehicles: 85,
-        vehiclesAreInStock: 0,
-        vehicleIsEmpty: 85,
-        vehiclesAtBorder: { vehiclesAreInStock: 0, vehicleIsEmpty: 20 },
-        vehiclesOnTheRoad: { vehiclesAreInStock: 0, vehicleIsEmpty: 40 }
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
     },
     {
         vehicle: '43C56925_C',
-        totalCompanyVehicles: 70,
-        vehiclesAreInStock: 10,
-        vehicleIsEmpty: 60,
-        vehiclesAtBorder: { vehiclesAreInStock: 5, vehicleIsEmpty: 15 },
-        vehiclesOnTheRoad: { vehiclesAreInStock: 5, vehicleIsEmpty: 30 }
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: false
     },
     {
         vehicle: '43C18226_C',
-        totalCompanyVehicles: 90,
-        vehiclesAreInStock: 20,
-        vehicleIsEmpty: 70,
-        vehiclesAtBorder: { vehiclesAreInStock: 5, vehicleIsEmpty: 20 },
-        vehiclesOnTheRoad: { vehiclesAreInStock: 5, vehicleIsEmpty: 30 }
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
     },
     {
         vehicle: '43C80739_C',
-        totalCompanyVehicles: 75,
-        vehiclesAreInStock: 5,
-        vehicleIsEmpty: 70,
-        vehiclesAtBorder: { vehiclesAreInStock: 0, vehicleIsEmpty: 15 },
-        vehiclesOnTheRoad: { vehiclesAreInStock: 0, vehicleIsEmpty: 25 }
+        isVehicleBorderOrRoad: false,
+        isVehicleAreStockOrEmpty: true
     },
     {
         vehicle: '43C65218_C',
-        totalCompanyVehicles: 65,
-        vehiclesAreInStock: 5,
-        vehicleIsEmpty: 60,
-        vehiclesAtBorder: { vehiclesAreInStock: 2, vehicleIsEmpty: 10 },
-        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 20 }
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
     },
     {
         vehicle: '43C39683_C',
-        totalCompanyVehicles: 88,
-        vehiclesAreInStock: 8,
-        vehicleIsEmpty: 80,
-        vehiclesAtBorder: { vehiclesAreInStock: 2, vehicleIsEmpty: 20 },
-        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 35 }
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: false
     },
     {
         vehicle: '43C26347_C',
-        totalCompanyVehicles: 100,
-        vehiclesAreInStock: 15,
-        vehicleIsEmpty: 85,
-        vehiclesAtBorder: { vehiclesAreInStock: 3, vehicleIsEmpty: 25 },
-        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 40 }
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
     },
     {
         vehicle: '43C91252_C',
-        totalCompanyVehicles: 60,
-        vehiclesAreInStock: 5,
-        vehicleIsEmpty: 55,
-        vehiclesAtBorder: { vehiclesAreInStock: 1, vehicleIsEmpty: 10 },
-        vehiclesOnTheRoad: { vehiclesAreInStock: 1, vehicleIsEmpty: 20 }
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
     },
     {
         vehicle: '43C74087_C',
-        totalCompanyVehicles: 78,
-        vehiclesAreInStock: 8,
-        vehicleIsEmpty: 70,
-        vehiclesAtBorder: { vehiclesAreInStock: 2, vehicleIsEmpty: 15 },
-        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 30 }
+        isVehicleBorderOrRoad: false,
+        isVehicleAreStockOrEmpty: true
     },
     {
         vehicle: '43C32719_C',
-        totalCompanyVehicles: 95,
-        vehiclesAreInStock: 10,
-        vehicleIsEmpty: 85,
-        vehiclesAtBorder: { vehiclesAreInStock: 3, vehicleIsEmpty: 25 },
-        vehiclesOnTheRoad: { vehiclesAreInStock: 3, vehicleIsEmpty: 40 }
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
     },
     {
         vehicle: '43C20908_C',
-        totalCompanyVehicles: 67,
-        vehiclesAreInStock: 7,
-        vehicleIsEmpty: 60,
-        vehiclesAtBorder: { vehiclesAreInStock: 1, vehicleIsEmpty: 15 },
-        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 30 }
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: false
     },
     {
         vehicle: '43C63584_C',
-        totalCompanyVehicles: 82,
-        vehiclesAreInStock: 12,
-        vehicleIsEmpty: 70,
-        vehiclesAtBorder: { vehiclesAreInStock: 3, vehicleIsEmpty: 20 },
-        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 35 }
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
     },
     {
         vehicle: '43C92657_C',
-        totalCompanyVehicles: 90,
-        vehiclesAreInStock: 10,
-        vehicleIsEmpty: 80,
-        vehiclesAtBorder: { vehiclesAreInStock: 4, vehicleIsEmpty: 20 },
-        vehiclesOnTheRoad: { vehiclesAreInStock: 4, vehicleIsEmpty: 40 }
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
     },
     {
         vehicle: '43C61241_C',
-        totalCompanyVehicles: 84,
-        vehiclesAreInStock: 14,
-        vehicleIsEmpty: 70,
-        vehiclesAtBorder: { vehiclesAreInStock: 2, vehicleIsEmpty: 20 },
-        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 35 }
+        isVehicleBorderOrRoad: false,
+        isVehicleAreStockOrEmpty: true
     },
     {
         vehicle: '43C25895_C',
-        totalCompanyVehicles: 92,
-        vehiclesAreInStock: 12,
-        vehicleIsEmpty: 80,
-        vehiclesAtBorder: { vehiclesAreInStock: 3, vehicleIsEmpty: 25 },
-        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 38 }
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
     },
     {
         vehicle: '43C33185_C',
-        totalCompanyVehicles: 88,
-        vehiclesAreInStock: 8,
-        vehicleIsEmpty: 80,
-        vehiclesAtBorder: { vehiclesAreInStock: 3, vehicleIsEmpty: 20 },
-        vehiclesOnTheRoad: { vehiclesAreInStock: 3, vehicleIsEmpty: 40 }
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: false
     },
     {
         vehicle: '43C28013_C',
-        totalCompanyVehicles: 79,
-        vehiclesAreInStock: 9,
-        vehicleIsEmpty: 70,
-        vehiclesAtBorder: { vehiclesAreInStock: 2, vehicleIsEmpty: 18 },
-        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 30 }
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
     },
     {
         vehicle: '43C71892_C',
-        totalCompanyVehicles: 86,
-        vehiclesAreInStock: 11,
-        vehicleIsEmpty: 75,
-        vehiclesAtBorder: { vehiclesAreInStock: 2, vehicleIsEmpty: 20 },
-        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 35 }
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
     },
     {
         vehicle: '43C10847_C',
-        totalCompanyVehicles: 81,
-        vehiclesAreInStock: 11,
-        vehicleIsEmpty: 70,
-        vehiclesAtBorder: { vehiclesAreInStock: 2, vehicleIsEmpty: 19 },
-        vehiclesOnTheRoad: { vehiclesAreInStock: 2, vehicleIsEmpty: 36 }
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: false
     },
     {
         vehicle: '43C53211_C',
-        totalCompanyVehicles: 96,
-        vehiclesAreInStock: 16,
-        vehicleIsEmpty: 80,
-        vehiclesAtBorder: { vehiclesAreInStock: 3, vehicleIsEmpty: 22 },
-        vehiclesOnTheRoad: { vehiclesAreInStock: 3, vehicleIsEmpty: 40 }
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C32956_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C56926_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: false
+    },
+    {
+        vehicle: '43C18227_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C80740_C',
+        isVehicleBorderOrRoad: false,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C65219_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C39684_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: false
+    },
+    {
+        vehicle: '43C26348_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C91253_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C74088_C',
+        isVehicleBorderOrRoad: false,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C32720_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C20909_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: false
+    },
+    {
+        vehicle: '43C63585_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C92658_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C61242_C',
+        isVehicleBorderOrRoad: false,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C25896_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C33186_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: false
+    },
+    {
+        vehicle: '43C28014_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C71893_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C10848_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: false
+    },
+    {
+        vehicle: '43C53212_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C18390_C',
+        isVehicleBorderOrRoad: false,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C29194_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: false
+    },
+    {
+        vehicle: '43C15238_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C29301_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: false
+    },
+    {
+        vehicle: '43C43079_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C68721_C',
+        isVehicleBorderOrRoad: false,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C56148_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C82139_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: false
+    },
+    {
+        vehicle: '43C39567_C',
+        isVehicleBorderOrRoad: false,
+        isVehicleAreStockOrEmpty: false
+    },
+    {
+        vehicle: '43C55648_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: false
+    },
+    {
+        vehicle: '43C40985_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C21859_C',
+        isVehicleBorderOrRoad: false,
+        isVehicleAreStockOrEmpty: false
+    },
+    {
+        vehicle: '43C81275_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C38594_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C51294_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: false
+    },
+    {
+        vehicle: '43C61824_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C47932_C',
+        isVehicleBorderOrRoad: false,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C50419_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: false
+    },
+    {
+        vehicle: '43C66453_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C29251_C',
+        isVehicleBorderOrRoad: false,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C15376_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C27485_C',
+        isVehicleBorderOrRoad: false,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C37619_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C45390_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: false
+    },
+    {
+        vehicle: '43C23912_C',
+        isVehicleBorderOrRoad: false,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C10483_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
+    },
+    {
+        vehicle: '43C65510_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: false
+    },
+    {
+        vehicle: '43C77360_C',
+        isVehicleBorderOrRoad: true,
+        isVehicleAreStockOrEmpty: true
     }
 ];
 
-export const VehiclesAtPort: any[] = [
+export const VehiclesAtPort: { label: string, value: number }[] = [
     {
-        name: '504',
+        label: '504',
         value: 6,
     },
     {
-        name: 'A Minh',
+        label: 'A Minh',
         value: 8,
     },
     {
-        name: 'A. Bữu (Đại đồng, Đại lộc)',
+        label: 'A. Bữu (Đại đồng, Đại lộc)',
         value: 10
     },
     {
-        name: 'An Lợi Tinh',
+        label: 'An Lợi Tinh',
         value: 12,
     },
     {
-        name: 'An Phú Tài',
+        label: 'An Phú Tài',
         value: 14,
     },
     {
-        name: 'Anh Bửu (Giác trầm làm hương)',
+        label: 'Anh Bửu (Giác trầm làm hương)',
         value: 16,
     },
     {
-        name: 'Bãi 1/4 VCS Quy nhơn',
+        label: 'Bãi 1/4 VCS Quy nhơn',
         value: 18,
     },
     {
-        name: 'Bãi Container Chân Thật',
+        label: 'Bãi Container Chân Thật',
         value: 20,
     },
     {
-        name: 'Bãi Container Cty Hoàng Bảo Anh',
+        label: 'Bãi Container Cty Hoàng Bảo Anh',
         value: 22,
     },
     {
-        name: 'Bãi Container Hoàng Bảo Anh',
+        label: 'Bãi Container Hoàng Bảo Anh',
         value: 24,
     },
     {
-        name: 'Bãi Container Hoàng Bảo Anh (KCN PBAI)',
+        label: 'Bãi Container Hoàng Bảo Anh (KCN PBAI)',
         value: 26,
     },
     {
-        name: 'Bãi Dăm Bạch đàn',
+        label: 'Bãi Dăm Bạch đàn',
         value: 28,
     },
     {
-        name: 'Bãi Tân Thanh (container Hòa Cầm)',
+        label: 'Bãi Tân Thanh (container Hòa Cầm)',
         value: 30,
     },
     {
-        name: 'Bãi X50',
+        label: 'Bãi X50',
         value: 32,
     },
     {
-        name: 'Bãi xe 223 Trường Chinh',
+        label: 'Bãi xe 223 Trường Chinh 1',
         value: 34,
     },
     {
-        name: 'Bãi X50',
+        label: 'Bãi X50 2',
         value: 32,
     },
     {
-        name: 'Bãi xe 223 Trường Chinh',
+        label: 'Bãi xe 223 Trường Chinh 3',
         value: 34,
     },
     {
-        name: 'Bãi X50',
+        label: 'Bãi X50 4',
         value: 32,
     },
     {
-        name: 'Bãi xe 223 Trường Chinh',
+        label: 'Bãi xe 223 Trường Chinh 5',
         value: 34,
     },
     {
-        name: 'Bãi X50',
+        label: 'Bãi X50 6',
         value: 32,
     },
     {
-        name: 'Bãi xe 223 Trường Chinh',
+        label: 'Bãi xe 223 Trường Chinh 7',
         value: 34,
     },
     {
-        name: 'Bãi X50',
+        label: 'Bãi X50 8',
         value: 32,
     },
     {
-        name: 'Bãi xe 223 Trường Chinh',
+        label: 'Bãi xe 223 Trường Chinh 9',
         value: 34,
     },
     {
-        name: 'Bãi X50',
+        label: 'Bãi X50 10',
         value: 32,
     },
     {
-        name: 'Bãi xe 223 Trường Chinh',
+        label: 'Bãi xe 223 Trường Chinh 11',
         value: 34,
     },
     {
-        name: 'Bãi X50',
+        label: 'Bãi X50 12',
         value: 32,
     },
     {
-        name: 'Bãi xe 223 Trường Chinh',
+        label: 'Bãi xe 223 Trường Chinh 13',
         value: 34,
     },
     {
-        name: 'Bãi X50',
+        label: 'Bãi X50 14',
         value: 32,
     },
     {
-        name: 'Bãi xe 223 Trường Chinh',
+        label: 'Bãi xe 223 Trường Chinh 15',
         value: 34,
     },
     {
-        name: 'Bãi X50',
+        label: 'Bãi X50 16',
         value: 32,
     },
     {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
-        value: 34,
-    },
-    {
-        name: 'Bãi X50',
-        value: 32,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh',
+        label: 'Bãi xe 223 Trường Chinh 17',
         value: 34,
     },
 ];
 
-export const VehiclesAtFactory: any[] = [
+export const VehiclesAtFactory: { label: string, value: number }[] = [
     {
-        name: 'Cty Sedovina (trang thiết bị trường học)',
+        label: 'Cty Sedovina (trang thiết bị trường học)',
         value: 2,
     },
     {
-        name: 'Keyhinge Hòa Cầm',
+        label: 'Keyhinge Hòa Cầm',
         value: 1,
     },
     {
-        name: 'Sợi Phú Nam',
+        label: 'Sợi Phú Nam',
         value: 1,
     }
 ];

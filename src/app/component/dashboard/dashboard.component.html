@@ -1,0 +1,78 @@
+<div class="container-fluid p-0 m-0">
+  <div class="d-grid gap-2 mx-2 my-2">
+    <!-- Header -->
+    <div class="card">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <!-- Cột tiêu đề (bên trái) -->
+          <div class="col-12 col-md-5">
+            <h5 class="text-primary fw-bold m-0">TỔNG QUAN CHUYẾN HÀNG</h5>
+          </div>
+
+          <!-- Cột bộ lọc và nút refresh (bên phải) -->
+          <div class="col-12 col-md-7 mt-2 mt-md-0">
+            <div class="row w-100 m-0 align-items-center justify-content-md-end">
+              <div class="col-auto ps-0 d-flex align-items-center">
+                <span class="text-muted fw-semibold">XEM THEO</span>
+              </div>
+              <div class="col col-md-auto p-0 multiple-container">
+                <ba-multiselect [options]="vehicles" [(ngModel)]="selectedItems" [defaultLabel]="'Chọn phương tiện'"
+                  (ngModelChange)="calculateDashboardTotalsBySelection()">
+                </ba-multiselect>
+              </div>
+              <div class="col-auto pe-0">
+                <button type="button" class="btn d-flex align-items-center justify-content-center"
+                  style="background-color: #0959a0;" (click)="totalDataDashboard(); refreshMultiSelect()">
+                  <i class="fa-solid fa-rotate-right text-white"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex gap-2 m-0">
+      <ba-widget 
+        title="TỔNG QUAN CÔNG TY" 
+        type="card" 
+        [dataWidgetCard]="dataCard" 
+        [selectedItemWidth]="0"
+        (reload)="reloadOnClick('widget1')">
+      </ba-widget>
+
+      <ba-widget 
+        title="PHƯƠNG TIỆN TẠI CỬA KHẨU" 
+        type="doughnut" 
+        [dataWidgetDoughnut]="dataDoughnutBorder"
+        [selectedItemWidth]="1"
+        (reload)="reloadOnClick('widget2')">
+      </ba-widget>
+
+      <ba-widget 
+        title="PHƯƠNG TIỆN ĐANG TRÊN ĐƯỜNG" 
+        type="doughnut" 
+        [dataWidgetDoughnut]="dataDoughnutRoad"
+        [selectedItemWidth]="1"
+        (reload)="reloadOnClick('widget3')">
+      </ba-widget>
+
+      <ba-widget 
+        title="PHƯƠNG TIỆN TẠI NHÀ MÁY" 
+        type="bar" 
+        [dataWidgetBar]="dataBar"
+        [selectedItemWidth]="1"
+        (reload)="reloadOnClick('widget4')">
+      </ba-widget>
+
+      <ba-widget 
+        title="PHƯƠNG TIỆN TẠI NHÀ MÁY" 
+        type="bar" 
+        [dataWidgetBar]="dataBarScroll"
+        [selectedItemWidth]="0"
+        [gapBar]="130"
+        [isLastWidget]="true"
+        (reload)="reloadOnClick('widget5')">
+      </ba-widget>
+    </div>
+</div>

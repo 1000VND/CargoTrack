@@ -1,16 +1,15 @@
-<ng-select 
-  [items]="options" 
-  [(ngModel)]="selectedOptions" 
+<ng-select
+  [items]="options"
+  [(ngModel)]="selectedOptions"
   [placeholder]="defaultLabel"
-  bindLabel="label" 
-  bindValue="value" 
-  [multiple]="true" 
+  bindLabel="label"
+  bindValue="value"
+  [multiple]="true"
   groupBy="itemGroup"
-  [selectableGroup]="true" 
+  [selectableGroup]="true"
   [closeOnSelect]="false"
   (ngModelChange)="changeValue($event)"
   (keydown)="handleKeyDown($event)"
-  style="width: 25vw;"
   >
 
   <!-- Item Tất cả  -->

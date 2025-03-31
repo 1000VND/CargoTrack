@@ -10,15 +10,17 @@ import { DxChartModule, DxPieChartModule } from "devextreme-angular";
         FormsModule,
         NgSelectModule,
         DxPieChartModule,
-        DxChartModule
+        DxChartModule,
     ],
     exports: [
         CommonModule,
         FormsModule,
         NgSelectModule,
         DxPieChartModule,
-        DxChartModule
+        DxChartModule,
     ],
-    providers: []
+    providers: [
+
+    ]
 })
 export class AppBaseModule { }
