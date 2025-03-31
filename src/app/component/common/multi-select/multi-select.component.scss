@@ -1,6 +1,7 @@
 :host ::ng-deep {
     ng-select {
         width: 100%;
+
         .ng-select-container.ng-has-value>.ng-value-container {
             flex-wrap: nowrap;
             overflow-x: auto;
@@ -19,8 +20,20 @@
             }
         }
 
-        .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-child {
-            padding: 8px 10px;
+        .ng-dropdown-panel .ng-dropdown-panel-items {
+
+            .ng-optgroup,
+            .ng-option.ng-option-child {
+                font-size: 12px;
+                font-family: 'Roboto', sans-serif;
+                display: flex;
+                align-items: center;
+                gap: 0.35em;
+            }
+
+            .ng-option.ng-option-child {
+                padding: 0.5rem 0.625rem;
+            }
         }
     }
 }

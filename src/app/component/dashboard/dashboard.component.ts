@@ -102,8 +102,8 @@ export class DashboardComponent implements OnInit {
   }
 
   /**
- * Làm mới lại toàn bộ dữ liệu
- */
+   * Làm mới lại toàn bộ dữ liệu
+   */
   private refreshData() {
     this.dataCard = []
     this.dataDoughnutBorder = [];
