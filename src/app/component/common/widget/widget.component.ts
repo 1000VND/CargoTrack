@@ -25,7 +25,7 @@ export class WidgetComponent implements OnInit {
   @Input() dataWidgetDoughnut: DataWidgetDoughnut[] = []; // Dữ liệu của doughnut
   @Input() dataWidgetBar!: DataWidgetBar; // Dữ liệu của doughnut
   @Input() gapBar: number = 130; // Khoảng cách giữa các cột
-  @Input() selectedItemWidth = 0;
+  @Input() selectedItemWidth = 0; // Độ rộng mặc định
   @Input() isLastWidget: boolean = false; // Kiểm tra widget có phải là widget cuối cùng hay không
   @Output() reload = new EventEmitter<void>(); // Sự kiện làm mới
 
