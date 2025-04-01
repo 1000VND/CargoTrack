@@ -26,7 +26,6 @@ export class WidgetComponent implements OnInit {
   @Input() dataWidgetBar!: DataWidgetBar; // Dữ liệu của doughnut
   @Input() gapBar: number = 130; // Khoảng cách giữa các cột
   @Input() selectedItemWidth = 0; // Độ rộng mặc định
-  @Input() isLastWidget: boolean = false; // Kiểm tra widget có phải là widget cuối cùng hay không
   @Output() reload = new EventEmitter<void>(); // Sự kiện làm mới
 
   @HostBinding('class') get hostClasses() {
@@ -38,7 +37,7 @@ export class WidgetComponent implements OnInit {
   isShowCollapse: boolean = false;
   customPalette: string[] = [];
   defaulWidth: string = 'col-sm-12 flex-sm-grow-1'; // Độ rộng mặc định
-
+  isDropdownOpen: boolean = false;
   widthOptions: { label: string, value: number }[] = [
     {
       label: 'Tự động',
@@ -95,24 +94,16 @@ export class WidgetComponent implements OnInit {
    */
   onChangeWidth(value: number) {
     this.selectedItemWidth = value;
+    this.isDropdownOpen = false;
 
     // Cấu hình độ rộng cho widget
     const widthConfig: { [key: number]: { widthWidget: string; widthWidgetCardItem: string } } = {
-      1: { widthWidget: 'col-sm-3 flex-sm-grow-1', widthWidgetCardItem: 'col-12' },
-      2: { widthWidget: 'col-sm-8', widthWidgetCardItem: 'col-12 col-sm-3' },
-      3: { widthWidget: 'col-sm-12 flex-sm-grow-1', widthWidgetCardItem: 'col-12 col-sm-3' },
-      0: { widthWidget: 'col-sm-12 flex-sm-grow-1', widthWidgetCardItem: 'col-12 col-sm-3' }
+      1: { widthWidget: 'col-cus-4', widthWidgetCardItem: 'col-12' },
+      2: { widthWidget: 'col-cus-8', widthWidgetCardItem: 'col-12 col-sm-3' },
+      3: { widthWidget: 'col-cus-12', widthWidgetCardItem: 'col-12 col-sm-3' },
+      0: { widthWidget: 'width-fit-content', widthWidgetCardItem: 'col-12 col-sm-3' }
     };
-
-    // Cấu hình độ rộng cho widget cuối cùng
-    const widthConfigLastChild: { [key: number]: { widthWidget: string; widthWidgetCardItem: string } } = {
-      1: { widthWidget: 'col-sm-4 pe-1', widthWidgetCardItem: 'col-12' },
-      2: { widthWidget: 'col-sm-8 pe-1', widthWidgetCardItem: 'col-12 col-sm-3' },
-      3: { widthWidget: 'col-sm-12', widthWidgetCardItem: 'col-12 col-sm-3' },
-      0: { widthWidget: 'col-sm-3 flex-sm-grow-1', widthWidgetCardItem: 'col-12 col-sm-3' }
-    };
-
-    const config = this.isLastWidget ? widthConfigLastChild[value] : widthConfig[value];
+    const config = widthConfig[value];
     this.defaulWidth = config.widthWidget;
     this.widthWidgetCardItem = config.widthWidgetCardItem;
   }
@@ -131,5 +122,13 @@ export class WidgetComponent implements OnInit {
    */
   totalDataCenterChart() {
     return this.dataWidgetDoughnut.reduce((total, currentValue) => total + currentValue.value, 0);
+  }
+
+  onMouseEnter(): void {
+    this.isDropdownOpen = true;
+  }
+
+  onMouseLeave(): void {
+    this.isDropdownOpen = false;
   }
 }

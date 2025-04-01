@@ -3,7 +3,7 @@ import { AppBaseModule } from '../../app-base.module';
 import { WidgetComponent } from "../common/widget/widget.component";
 import { MultiSelectComponent } from '../common/multi-select/multi-select.component';
 import { DataDashboard, DataWidgetBar, DataWidgetCard, DataWidgetDoughnut } from '../../models/data-dashboard';
-import { DataDashboards, VehiclesAtFactory, VehiclesAtPort } from '../../data/seed-data';
+import { DataDashboards, Factories, Ports } from '../../data/seed-data';
 
 @Component({
   selector: 'dashboard',
@@ -21,12 +21,12 @@ export class DashboardComponent implements OnInit {
   dataDoughnutRoad: DataWidgetDoughnut[] = [];
 
   dataBar: DataWidgetBar = {
-    data: [...VehiclesAtFactory],
+    data: [],
     color: '#d32f2f'
   }
 
   dataBarScroll: DataWidgetBar = {
-    data: [...VehiclesAtPort],
+    data: [],
     color: '#20c997'
   }
 
@@ -56,8 +56,8 @@ export class DashboardComponent implements OnInit {
       this.countDataCard(this.selectedItems);
       this.countDataDoughnutBorder(this.selectedItems);
       this.countDataDoughnutRoad(this.selectedItems);
-      this.dataBar.data = [...VehiclesAtFactory];
-      this.dataBarScroll.data = [...VehiclesAtPort];
+      this.dataBar.data = this.countDataBarFactory(this.selectedItems);
+      this.dataBarScroll.data = this.countDataBarPort(this.selectedItems);
     }
   }
 
@@ -70,8 +70,8 @@ export class DashboardComponent implements OnInit {
     this.countDataCard();
     this.countDataDoughnutBorder();
     this.countDataDoughnutRoad();
-    this.dataBar.data = [...VehiclesAtFactory];
-    this.dataBarScroll.data = [...VehiclesAtPort];
+    this.dataBar.data = this.countDataBarFactory();
+    this.dataBarScroll.data = this.countDataBarPort(this.selectedItems);
   }
 
   /**
@@ -86,8 +86,6 @@ export class DashboardComponent implements OnInit {
    * @param widget 
    */
   reloadOnClick(widget: string) {
-    console.log('widget', widget);
-
     if (widget === 'widget1') {
       this.countDataCard(this.selectedItems);
     } else if (widget === 'widget2') {
@@ -95,9 +93,9 @@ export class DashboardComponent implements OnInit {
     } else if (widget === 'widget3') {
       this.countDataDoughnutRoad(this.selectedItems);
     } else if (widget === 'widget4') {
-      this.dataBar.data = [...VehiclesAtFactory];
+      this.dataBar.data = this.countDataBarFactory(this.selectedItems);
     } else if (widget === 'widget5') {
-      this.dataBarScroll.data = [...VehiclesAtPort];
+      this.dataBarScroll.data = this.countDataBarPort(this.selectedItems);
     }
   }
 
@@ -172,6 +170,53 @@ export class DashboardComponent implements OnInit {
         color: '#e2803c'
       }
     ]
+  }
+
+  /**
+   * Tính giá trị widget 4
+   * @param [licensePlate] 
+   * @returns data bar factory 
+   */
+  countDataBarFactory(licensePlate: string[] = []): { value: number, label: string }[] {
+    this.dataBar.data = [];
+
+    // Lọc các phương tiện đang ở nhà máy
+    const vehicle = DataDashboards.filter(e => (licensePlate.length === 0 || licensePlate.includes(e.vehicle)) && e.vehicleAtFactory)
+      .map(item => item.vehicleAtFactory);
+
+
+    return Factories.map((factory) => {
+      // Tìm xem có bao nhiêu phương tiện ở nhà máy này
+      const count = vehicle.filter(e => e === factory.id).length;
+      return {
+        value: count,
+        label: factory.name
+      };
+    });
+    // .filter(e => e.value > 0);
+  }
+
+  /**
+   * Tính giá trị widget 5
+   * @param [licensePlate] 
+   * @returns data bar port 
+   */
+  countDataBarPort(licensePlate: string[] = []): { value: number, label: string }[] {
+    this.dataBarScroll.data = [];
+
+    // Lọc các phương tiện đang ở cảng
+    const vehicle = DataDashboards.filter(e => (licensePlate.length === 0 || licensePlate.includes(e.vehicle)) && e.vehicleAtPort)
+      .map(item => item.vehicleAtPort);
+
+    return Ports.map((port) => {
+      // Tìm xem có bao nhiêu phương tiện ở nhà máy này
+      const count = vehicle.filter(e => e === port.id).length;
+      return {
+        value: count,
+        label: port.name
+      };
+    }).sort((a, b) => b.value - a.value);
+    // .filter(e => e.value > 0);
   }
 
   /**

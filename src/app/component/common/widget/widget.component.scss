@@ -43,6 +43,7 @@
             min-width: 120px;
             padding-top: 0;
             padding-bottom: 0;
+            top: -2px;
         }
 
         .dropdown-submenu {
@@ -111,6 +112,10 @@
 
         .doughnutchart-container {
             min-width: 400px;
+
+            dx-pie-chart {
+                width: 100%;
+            }
         }
     }
 }
@@ -166,10 +171,6 @@
             .doughnutchart-container {
                 max-width: 90vw;
                 min-width: 0;
-
-                dx-pie-chart {
-                    width: 100%;
-                }
             }
         }
     }

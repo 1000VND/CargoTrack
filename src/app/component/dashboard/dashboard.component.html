@@ -1,7 +1,7 @@
 <div class="container-fluid p-0 m-0">
   <div class="d-grid gap-2 mx-2 my-2">
     <!-- Header -->
-    <div class="card">
+    <div class="card col-cus-12">
       <div class="card-body">
         <div class="row align-items-center">
           <!-- Cột tiêu đề (bên trái) -->
@@ -37,16 +37,16 @@
         title="TỔNG QUAN CÔNG TY" 
         type="card" 
         [dataWidgetCard]="dataCard" 
-        [selectedItemWidth]="0"
+        [selectedItemWidth]="3"
         (reload)="reloadOnClick('widget1')">
       </ba-widget>
 
       <ba-widget 
-        title="PHƯƠNG TIỆN TẠI CỬA KHẨU" 
-        type="doughnut" 
-        [dataWidgetDoughnut]="dataDoughnutBorder"
-        [selectedItemWidth]="1" 
-        (reload)="reloadOnClick('widget2')">
+      title="PHƯƠNG TIỆN TẠI CỬA KHẨU" 
+      type="doughnut" 
+      [dataWidgetDoughnut]="dataDoughnutBorder"
+      [selectedItemWidth]="1" 
+      (reload)="reloadOnClick('widget2')">
       </ba-widget>
 
       <ba-widget 
@@ -69,9 +69,8 @@
         title="PHƯƠNG TIỆN TẠI CẢNG" 
         type="bar" 
         [dataWidgetBar]="dataBarScroll" 
-        [selectedItemWidth]="0"
+        [selectedItemWidth]="3"
         [gapBar]="130" 
-        [isLastWidget]="true" 
         (reload)="reloadOnClick('widget5')">
       </ba-widget>
     </div>

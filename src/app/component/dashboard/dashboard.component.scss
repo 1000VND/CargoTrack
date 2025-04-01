@@ -8,3 +8,76 @@ ba-widget {
     display: flex;
     flex-direction: column;
 }
+
+.width-fit-content {
+    width: fit-content;
+}
+
+@media (min-width: 576px) {
+    .col-cus-4 {
+        flex: 0 0 auto;
+        width: 32.94%;
+    }
+
+    .col-cus-8 {
+        flex: 0 0 auto;
+        width: 66.5%;
+    }
+
+    .col-cus-12 {
+        flex: 0 0 auto;
+        width: 99.99%;
+    }
+}
+
+
+@media (min-width: 1385px) {
+    .col-cus-4 {
+        flex: 0 0 auto;
+        width: 32.94%;
+    }
+
+    .col-cus-8 {
+        flex: 0 0 auto;
+        width: 66.5%;
+    }
+
+    .col-cus-12 {
+        flex: 0 0 auto;
+        width: 99.99%;
+    }
+}
+
+@media (min-width: 1600px) {
+    .col-cus-4 {
+        flex: 0 0 auto;
+        width: 32.99%;
+    }
+
+    .col-cus-8 {
+        flex: 0 0 auto;
+        width: 66.5%;
+    }
+
+    .col-cus-12 {
+        flex: 0 0 auto;
+        width: 99.99%;
+    }
+}
+
+@media (min-width: 1912px) {
+    .col-cus-4 {
+        flex: 0 0 auto;
+        width: 33.05%;
+    }
+
+    .col-cus-8 {
+        flex: 0 0 auto;
+        width: 66.5%;
+    }
+
+    .col-cus-12 {
+        flex: 0 0 auto;
+        width: 99.99%;
+    }
+}
