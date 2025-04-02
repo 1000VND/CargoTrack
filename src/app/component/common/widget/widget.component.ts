@@ -96,13 +96,7 @@ export class WidgetComponent implements OnInit {
     this.selectedItemWidth = value;
     this.isDropdownOpen = false;
 
-    // Cấu hình độ rộng cho widget
-    const widthConfig: { [key: number]: { widthWidget: string; widthWidgetCardItem: string } } = {
-      1: { widthWidget: 'col-cus-4', widthWidgetCardItem: 'col-12' },
-      2: { widthWidget: 'col-cus-8', widthWidgetCardItem: 'col-12 col-sm-3' },
-      3: { widthWidget: 'col-cus-12', widthWidgetCardItem: 'col-12 col-sm-3' },
-      0: { widthWidget: 'width-fit-content', widthWidgetCardItem: 'col-12 col-sm-3' }
-    };
+    // Cấu hình độ rộng cho widget card
     const widthCardConfig: { [key: number]: { widthWidget: string; widthWidgetCardItem: string } } = {
       1: { widthWidget: 'col-cus-4', widthWidgetCardItem: 'col-12' },
       2: { widthWidget: 'col-cus-8', widthWidgetCardItem: 'col-12 col-sm-3' },
@@ -110,19 +104,17 @@ export class WidgetComponent implements OnInit {
       0: { widthWidget: 'width-card-fit-content', widthWidgetCardItem: 'col-12 col-sm-3' }
     };
 
-    if (this.type === 'card') {
-      const config = widthCardConfig[this.selectedItemWidth];
-      this.defaulWidth = config.widthWidget;
-      this.widthWidgetCardItem = config.widthWidgetCardItem;
-    } else if (this.type === 'doughnut') {
-      const config = widthConfig[this.selectedItemWidth];
-      this.defaulWidth = config.widthWidget;
-      this.widthWidgetCardItem = config.widthWidgetCardItem;
-    } else if (this.type === 'bar') {
-      const config = widthConfig[this.selectedItemWidth];
-      this.defaulWidth = config.widthWidget;
-      this.widthWidgetCardItem = config.widthWidgetCardItem;
-    }
+    // Cấu hình độ rộng cho widget khác
+    const widthConfig: { [key: number]: { widthWidget: string; widthWidgetCardItem: string } } = {
+      1: { widthWidget: 'col-cus-4', widthWidgetCardItem: 'col-12' },
+      2: { widthWidget: 'col-cus-8', widthWidgetCardItem: 'col-12 col-sm-3' },
+      3: { widthWidget: 'col-cus-12', widthWidgetCardItem: 'col-12 col-sm-3' },
+      0: { widthWidget: 'width-fit-content', widthWidgetCardItem: 'col-12 col-sm-3' }
+    };
+
+    const config = this.type === 'card' ? widthCardConfig[this.selectedItemWidth] : widthConfig[this.selectedItemWidth];
+    this.defaulWidth = config.widthWidget;
+    this.widthWidgetCardItem = config.widthWidgetCardItem;
   }
 
   /**
