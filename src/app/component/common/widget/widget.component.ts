@@ -25,7 +25,6 @@ export class WidgetComponent implements OnInit {
   @Input() dataWidgetDoughnut: DataWidgetDoughnut[] = []; // Dữ liệu của doughnut
   @Input() dataWidgetBar!: DataWidgetBar; // Dữ liệu của doughnut
   @Input() gapBar: number = 130; // Khoảng cách giữa các cột
-  @Input() selectedItemWidth = 0; // Độ rộng mặc định
   @Output() reload = new EventEmitter<void>(); // Sự kiện làm mới
 
   @HostBinding('class') get hostClasses() {
@@ -33,6 +32,7 @@ export class WidgetComponent implements OnInit {
   }
 
   [key: number]: number;
+  selectedItemWidth = 0; // Độ rộng mặc định
   widthWidgetCardItem: string = 'col-12 col-sm-3';
   isShowCollapse: boolean = false;
   customPalette: string[] = [];
@@ -103,9 +103,26 @@ export class WidgetComponent implements OnInit {
       3: { widthWidget: 'col-cus-12', widthWidgetCardItem: 'col-12 col-sm-3' },
       0: { widthWidget: 'width-fit-content', widthWidgetCardItem: 'col-12 col-sm-3' }
     };
-    const config = widthConfig[value];
-    this.defaulWidth = config.widthWidget;
-    this.widthWidgetCardItem = config.widthWidgetCardItem;
+    const widthCardConfig: { [key: number]: { widthWidget: string; widthWidgetCardItem: string } } = {
+      1: { widthWidget: 'col-cus-4', widthWidgetCardItem: 'col-12' },
+      2: { widthWidget: 'col-cus-8', widthWidgetCardItem: 'col-12 col-sm-3' },
+      3: { widthWidget: 'col-cus-12', widthWidgetCardItem: 'col-12 col-sm-3' },
+      0: { widthWidget: 'width-card-fit-content', widthWidgetCardItem: 'col-12 col-sm-3' }
+    };
+
+    if (this.type === 'card') {
+      const config = widthCardConfig[this.selectedItemWidth];
+      this.defaulWidth = config.widthWidget;
+      this.widthWidgetCardItem = config.widthWidgetCardItem;
+    } else if (this.type === 'doughnut') {
+      const config = widthConfig[this.selectedItemWidth];
+      this.defaulWidth = config.widthWidget;
+      this.widthWidgetCardItem = config.widthWidgetCardItem;
+    } else if (this.type === 'bar') {
+      const config = widthConfig[this.selectedItemWidth];
+      this.defaulWidth = config.widthWidget;
+      this.widthWidgetCardItem = config.widthWidgetCardItem;
+    }
   }
 
   /**

@@ -37,23 +37,20 @@
         title="TỔNG QUAN CÔNG TY" 
         type="card" 
         [dataWidgetCard]="dataCard" 
-        [selectedItemWidth]="3"
         (reload)="reloadOnClick('widget1')">
       </ba-widget>
 
       <ba-widget 
-      title="PHƯƠNG TIỆN TẠI CỬA KHẨU" 
-      type="doughnut" 
-      [dataWidgetDoughnut]="dataDoughnutBorder"
-      [selectedItemWidth]="1" 
-      (reload)="reloadOnClick('widget2')">
+        title="PHƯƠNG TIỆN TẠI CỬA KHẨU" 
+        type="doughnut" 
+        [dataWidgetDoughnut]="dataDoughnutBorder"
+        (reload)="reloadOnClick('widget2')">
       </ba-widget>
 
       <ba-widget 
         title="PHƯƠNG TIỆN ĐANG TRÊN ĐƯỜNG" 
         type="doughnut" 
         [dataWidgetDoughnut]="dataDoughnutRoad"
-        [selectedItemWidth]="1" 
         (reload)="reloadOnClick('widget3')">
       </ba-widget>
 
@@ -61,7 +58,6 @@
         title="PHƯƠNG TIỆN TẠI NHÀ MÁY" 
         type="bar" 
         [dataWidgetBar]="dataBar" 
-        [selectedItemWidth]="1"
         (reload)="reloadOnClick('widget4')">
       </ba-widget>
 
@@ -69,7 +65,6 @@
         title="PHƯƠNG TIỆN TẠI CẢNG" 
         type="bar" 
         [dataWidgetBar]="dataBarScroll" 
-        [selectedItemWidth]="3"
         [gapBar]="130" 
         (reload)="reloadOnClick('widget5')">
       </ba-widget>

@@ -6,8 +6,8 @@
     background: #ffffff;
 
     .btn-sm {
-        width: 32px;
-        height: 32px;
+        width: 2rem;
+        height: 2rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -95,8 +95,7 @@
         }
 
         .marker-legend {
-            flex-wrap: wrap;
-            width: 400px;
+            min-width: 260px;
 
             .marker-legend-icon {
                 width: 1em;
@@ -111,7 +110,7 @@
         }
 
         .doughnutchart-container {
-            min-width: 500px;
+            min-width: 260px;
 
             dx-pie-chart {
                 width: 100%;

@@ -16,7 +16,7 @@
       </button>
   
       <!-- Dropdown Menu: Tùy chỉnh độ rộng -->
-      <div class="dropdown d-none d-md-block">
+      <div class="dropdown d-none d-sm-block">
         <button class="btn btn-sm" type="button" id="dropdownMenu">
           <i class="fa-solid fa-ellipsis-vertical"></i>
         </button>
@@ -122,9 +122,17 @@
             <span class="mx-2" style="font-size: 12px;">Số phương tiện</span>
           </div>
           <div class="chart-wrapper">
-            <dx-chart id="chart" [dataSource]="dataWidgetBar!.data" [size]="{ width: (dataWidgetBar!.data.length * gapBar) }">
-              <dxi-series argumentField="label" valueField="value" type="bar" [color]="dataWidgetBar!.color" [barWidth]="40"
-                barOverlapGroup="1">
+            <dx-chart 
+              id="chart" 
+              [dataSource]="dataWidgetBar!.data" 
+              [size]="{ width: (dataWidgetBar!.data.length * gapBar) }">
+              <dxi-series 
+                argumentField="label"
+                valueField="value"
+                type="bar"
+                barOverlapGroup="1"
+                [color]="dataWidgetBar!.color"
+                [barWidth]="40">
                 <dxo-label [visible]="true" backgroundColor="transparent">
                   <dxo-font color="black"></dxo-font>
                 </dxo-label>
