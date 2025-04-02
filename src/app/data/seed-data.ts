@@ -80,120 +80,33 @@ export const Factories: { name: string, id: number }[] = [
 
 export const Ports: { name: string, id: number }[] = [
     { name: '504', id: 1 },
-    {
-        name: 'A Minh',
-        id: 2,
-    },
-    {
-        name: 'A. Bữu (Đại đồng, Đại lộc)',
-        id: 3
-    },
-    {
-        name: 'An Lợi Tinh',
-        id: 4,
-    },
-    {
-        name: 'An Phú Tài',
-        id: 5,
-    },
-    {
-        name: 'Anh Bửu (Giác trầm làm hương)',
-        id: 6,
-    },
-    {
-        name: 'Bãi 1/4 VCS Quy nhơn',
-        id: 7,
-    },
-    {
-        name: 'Bãi Container Chân Thật',
-        id: 8,
-    },
-    {
-        name: 'Bãi Container Cty Hoàng Bảo Anh',
-        id: 9,
-    },
-    {
-        name: 'Bãi Container Hoàng Bảo Anh',
-        id: 10,
-    },
-    {
-        name: 'Bãi Container Hoàng Bảo Anh (KCN PBAI)',
-        id: 11,
-    },
-    {
-        name: 'Bãi Dăm Bạch đàn',
-        id: 12,
-    },
-    {
-        name: 'Bãi Tân Thanh (container Hòa Cầm)',
-        id: 13,
-    },
-    {
-        name: 'Bãi X50',
-        id: 14,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh 1',
-        id: 15,
-    },
-    {
-        name: 'Bãi X50 2',
-        id: 16,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh 3',
-        id: 17,
-    },
-    {
-        name: 'Bãi X50 4',
-        id: 18,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh 5',
-        id: 19,
-    },
-    {
-        name: 'Bãi X50 6',
-        id: 20,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh 7',
-        id: 21,
-    },
-    {
-        name: 'Bãi X50 8',
-        id: 22,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh 9',
-        id: 23,
-    },
-    {
-        name: 'Bãi X50 10',
-        id: 24,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh 11',
-        id: 25,
-    },
-    {
-        name: 'Bãi X50 12',
-        id: 26,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh 13',
-        id: 27,
-    },
-    {
-        name: 'Bãi X50 14',
-        id: 29,
-    },
-    {
-        name: 'Bãi xe 223 Trường Chinh 15',
-        id: 29,
-    },
-    {
-        name: 'Bãi X50 16',
-        id: 30,
-    },
+    { name: 'A Minh', id: 2 },
+    { name: 'A. Bữu (Đại đồng, Đại lộc)', id: 3 },
+    { name: 'An Lợi Tinh', id: 4 },
+    { name: 'An Phú Tài', id: 5 },
+    { name: 'Anh Bửu (Giác trầm làm hương)', id: 6 },
+    { name: 'Bãi 1/4 VCS Quy nhơn', id: 7 },
+    { name: 'Bãi Container Chân Thật', id: 8 },
+    { name: 'Bãi Container Cty Hoàng Bảo Anh', id: 9 },
+    { name: 'Bãi Container Hoàng Bảo Anh', id: 10 },
+    { name: 'Bãi Container Hoàng Bảo Anh (KCN PBAI)', id: 11 },
+    { name: 'Bãi Dăm Bạch đàn', id: 12 },
+    { name: 'Bãi Tân Thanh (container Hòa Cầm)', id: 13 },
+    { name: 'Bãi X50', id: 14 },
+    { name: 'Bãi xe 223 Trường Chinh 1', id: 15 },
+    { name: 'Bãi X50 2', id: 16 },
+    { name: 'Bãi xe 223 Trường Chinh 3', id: 17 },
+    { name: 'Bãi X50 4', id: 18 },
+    { name: 'Bãi xe 223 Trường Chinh 5', id: 19 },
+    { name: 'Bãi X50 6', id: 20 },
+    { name: 'Bãi xe 223 Trường Chinh 7', id: 21 },
+    { name: 'Bãi X50 8', id: 22 },
+    { name: 'Bãi xe 223 Trường Chinh 9', id: 23 },
+    { name: 'Bãi X50 10', id: 24 },
+    { name: 'Bãi xe 223 Trường Chinh 11', id: 25 },
+    { name: 'Bãi X50 12', id: 26 },
+    { name: 'Bãi xe 223 Trường Chinh 13', id: 27 },
+    { name: 'Bãi X50 14', id: 29 },
+    { name: 'Bãi xe 223 Trường Chinh 15', id: 29 },
+    { name: 'Bãi X50 16', id: 30 },
 ]
