@@ -51,8 +51,6 @@ export class DashboardComponent implements OnInit {
     if (this.selectedItems.length === 0 || this.selectedItems[0].includes('Tất')) {
       this.totalDataDashboard();
     } else {
-      this.refreshData();
-
       this.countDataCard(this.selectedItems);
       this.countDataDoughnutBorder(this.selectedItems);
       this.countDataDoughnutRoad(this.selectedItems);
@@ -71,7 +69,7 @@ export class DashboardComponent implements OnInit {
     this.countDataDoughnutBorder();
     this.countDataDoughnutRoad();
     this.dataBar.data = this.countDataBarFactory();
-    this.dataBarScroll.data = this.countDataBarPort(this.selectedItems);
+    this.dataBarScroll.data = this.countDataBarPort();
   }
 
   /**
@@ -86,16 +84,19 @@ export class DashboardComponent implements OnInit {
    * @param widget 
    */
   reloadOnClick(widget: string) {
+
+    const dataReload = this.selectedItems.length === 0 || this.selectedItems[0].includes('Tất') ? [] : this.selectedItems;
+
     if (widget === 'widget1') {
-      this.countDataCard(this.selectedItems);
+      this.countDataCard(dataReload);
     } else if (widget === 'widget2') {
-      this.countDataDoughnutBorder(this.selectedItems);
+      this.countDataDoughnutBorder(dataReload);
     } else if (widget === 'widget3') {
-      this.countDataDoughnutRoad(this.selectedItems);
+      this.countDataDoughnutRoad(dataReload);
     } else if (widget === 'widget4') {
-      this.dataBar.data = this.countDataBarFactory(this.selectedItems);
+      this.dataBar.data = this.countDataBarFactory(dataReload);
     } else if (widget === 'widget5') {
-      this.dataBarScroll.data = this.countDataBarPort(this.selectedItems);
+      this.dataBarScroll.data = this.countDataBarPort(dataReload);
     }
   }
 
@@ -177,13 +178,12 @@ export class DashboardComponent implements OnInit {
    * @param [licensePlate] 
    * @returns data bar factory 
    */
-  countDataBarFactory(licensePlate: string[] = []): { value: number, label: string }[] {
+  private countDataBarFactory(licensePlate: string[] = []): { value: number, label: string }[] {
     this.dataBar.data = [];
 
     // Lọc các phương tiện đang ở nhà máy
     const vehicle = DataDashboards.filter(e => (licensePlate.length === 0 || licensePlate.includes(e.vehicle)) && e.vehicleAtFactory)
       .map(item => item.vehicleAtFactory);
-
 
     return Factories.map((factory) => {
       // Tìm xem có bao nhiêu phương tiện ở nhà máy này
@@ -201,7 +201,7 @@ export class DashboardComponent implements OnInit {
    * @param [licensePlate] 
    * @returns data bar port 
    */
-  countDataBarPort(licensePlate: string[] = []): { value: number, label: string }[] {
+  private countDataBarPort(licensePlate: string[] = []): { value: number, label: string }[] {
     this.dataBarScroll.data = [];
 
     // Lọc các phương tiện đang ở cảng
