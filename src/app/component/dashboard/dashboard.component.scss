@@ -11,6 +11,7 @@ ba-widget {
 
 .width-fit-content {
     width: fit-content;
+    flex-grow: 1;
 }
 
 @media (min-width: 576px) {
