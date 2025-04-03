@@ -1,19 +1,17 @@
 import { Component, ElementRef, EventEmitter, forwardRef, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { AppBaseModule } from '../../../app-base.module';
 
 @Component({
   selector: 'ba-multiselect',
   templateUrl: './multi-select.component.html',
   styleUrls: ['./multi-select.component.scss'],
-  imports: [AppBaseModule],
-  providers: [
+  providers: [ // Giúp cho component này có thể được sử dụng như một value accessor trong Angular Forms
     {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => MultiSelectComponent),
-      multi: true
-    }],
-  standalone: true
+      provide: NG_VALUE_ACCESSOR,  // Cung cấp value accessor cho Angular Forms
+      useExisting: forwardRef(() => MultiSelectComponent),  // Sử dụng component MultiSelectComponent làm provider cho NG_VALUE_ACCESSOR
+      multi: true  // Cho phép nhiều provider cho NG_VALUE_ACCESSOR, vì một component có thể làm nhiều thứ
+    }
+  ]
 })
 export class MultiSelectComponent implements OnInit {
   @ViewChild('inputElement', { static: false }) inputElement!: ElementRef;

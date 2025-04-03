@@ -33,7 +33,7 @@
     </div>
 
     <div class="row d-flex gap-2 m-0">
-      <ba-widget 
+      <!-- <ba-widget 
         title="TỔNG QUAN CÔNG TY" 
         type="card" 
         [dataWidgetCard]="dataCard" 
@@ -65,8 +65,12 @@
         title="PHƯƠNG TIỆN TẠI CẢNG" 
         type="bar" 
         [dataWidgetBar]="dataBarScroll" 
-        [gapBar]="130" 
         (reload)="reloadOnClick('widget5')">
-      </ba-widget>
+      </ba-widget> -->
+      <overview-company-widget></overview-company-widget>
+      <vehicle-at-factory [vehicleSelected]="selectedItems"></vehicle-at-factory>
+
+      <vehicle-at-port [vehicleSelected]="selectedItems"></vehicle-at-port>
+
     </div>
   </div>

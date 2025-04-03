@@ -9,8 +9,6 @@ import { DataDashboards, Factories, Ports } from '../../data/seed-data';
   selector: 'dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  imports: [AppBaseModule, MultiSelectComponent, WidgetComponent],
-  standalone: true
 })
 export class DashboardComponent implements OnInit {
 

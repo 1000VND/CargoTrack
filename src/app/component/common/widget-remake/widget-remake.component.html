@@ -1,0 +1,51 @@
+<div class="d-flex flex-column h-100">
+  <div class="d-flex justify-content-between align-items-center header-container">
+    <!-- Tiêu đề -->
+    <h6 class="text-primary fw-bold m-0">{{ title }}</h6>
+  
+    <!-- Nút chức năng -->
+    <div class="d-flex gap-2">
+      <!-- Nút Thu vào/Mở rộng -->
+      <button class="btn btn-sm" type="button" (click)="onToggleCollapse()">
+        <i class="fa-solid" [ngClass]="isShowCollapse ? 'fa-chevron-down' : 'fa-chevron-up'"></i>
+      </button>
+  
+      <!-- Nút Reload -->
+      <button class="btn btn-sm" (click)="onReload()">
+        <i class="fa-solid fa-rotate-right"></i>
+      </button>
+  
+      <!-- Dropdown Menu: Tùy chỉnh độ rộng -->
+      <div class="dropdown d-none d-md-block">
+        <button class="btn btn-sm" type="button" id="dropdownMenu">
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </button>
+      
+        <ul class="dropdown-menu dropdown-parent" aria-labelledby="dropdownMenu">
+          <!-- Mục "Độ rộng" có submenu -->
+          <li class="dropdown-submenu">
+            <a class="dropdown-item text-muted fw-semibold d-flex justify-content-between align-items-center">
+              Độ rộng <i class="fa-solid fa-angle-right"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-child">
+              <li *ngFor="let option of widthOptions; let i=index;" (click)="onChangeWidth(option.value)">
+                <a class="dropdown-item" [class.active]="option.value === selectedItemWidth">
+                  {{ option.label }}
+                  <span *ngIf="option.value === selectedItemWidth">
+                    <i class="fa-solid fa-check text-primary"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="collapse" [ngClass]="{'show d-flex flex-column': !isShowCollapse}">
+    <div class="card-body d-flex flex-grow-1 justify-content-center m-3">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

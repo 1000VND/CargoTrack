@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-start align-items-center p-0">
+  <div class="col-auto h-100">
+    <span class="mx-2" style="font-size: 12px;">Số phương tiện</span>
+  </div>
+  <div class="chart-wrapper">
+    <dx-chart 
+      id="chart" 
+      [dataSource]="dataSource" 
+      [size]="{ width: (dataSource.length * gapBar) }">
+      <dxi-series 
+        argumentField="argument" 
+        valueField="value" 
+        type="bar" 
+        barOverlapGroup="1" 
+        [color]="color"
+        [barWidth]="40">
+        <dxo-label [visible]="true" backgroundColor="transparent">
+          <dxo-font color="black"></dxo-font>
+        </dxo-label>
+      </dxi-series>
+
+      <dxi-value-axis [minValueMargin]="0" [maxValueMargin]="1"></dxi-value-axis>
+      <dxo-argument-axis>
+        <dxo-label [visible]="true">
+          <dxo-font weight="bold" color="black"></dxo-font>
+        </dxo-label>
+      </dxo-argument-axis>
+      <dxo-legend [visible]="false"></dxo-legend>
+    </dx-chart>
+  </div>
+</div>

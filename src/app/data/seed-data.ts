@@ -76,7 +76,7 @@ export const Factories: { name: string, id: number }[] = [
     { name: 'Cty Sedovina (trang thiết bị trường học)', id: 1 },
     { name: 'Keyhinge Hòa Cầm', id: 2 },
     { name: 'Sợi Phú Nam', id: 3 }
-]
+];
 
 export const Ports: { name: string, id: number }[] = [
     { name: '504', id: 1 },
@@ -109,4 +109,4 @@ export const Ports: { name: string, id: number }[] = [
     { name: 'Bãi X50 14', id: 29 },
     { name: 'Bãi xe 223 Trường Chinh 15', id: 29 },
     { name: 'Bãi X50 16', id: 30 },
-]
+];

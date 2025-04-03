@@ -7,14 +7,6 @@ import { DataWidgetBar, DataWidgetCard, DataWidgetDoughnut } from '../../../mode
   selector: 'ba-widget',
   templateUrl: './widget.component.html',
   styleUrls: ['./widget.component.scss'],
-  imports: [AppBaseModule],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => WidgetComponent),
-      multi: true
-    }],
-  standalone: true
 })
 export class WidgetComponent implements OnInit {
   @ViewChild('widgetCollapse') collapseElement!: ElementRef;

@@ -7,9 +7,11 @@ export interface DataDashboard {
 }
 
 export interface DataWidgetCard {
-    title: string;
-    value: number;
-    color: string;
+    title: string,
+    color?: string,
+    value: number,
+    showPercent?: boolean,
+    valuePercent?: number,
 }
 
 export interface DataWidgetDoughnut {
@@ -22,3 +24,4 @@ export interface DataWidgetBar {
     data: { value: number, label: string }[];
     color: string;
 }
+
