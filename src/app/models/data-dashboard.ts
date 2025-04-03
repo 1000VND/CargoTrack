@@ -14,10 +14,9 @@ export interface DataWidgetCard {
     valuePercent?: number,
 }
 
-export interface DataWidgetDoughnut {
+export interface DataChart {
     value: number;
-    label: string;
-    color: string;
+    argument: string;
 }
 
 export interface DataWidgetBar {

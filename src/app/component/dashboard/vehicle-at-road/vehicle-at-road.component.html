@@ -1,0 +1,5 @@
+<ba-widget [title]="'PHƯƠNG TIỆN ĐANG TRÊN ĐƯỜNG'" type="doughnut" (widthChange)="changeWidth($event)"
+  (reload)="callBackData(vehicleSelectSaved)">
+  <ba-doughnut-chart [dataSource]="dataSource" [totalCenterValue]="totalCenterValue">
+  </ba-doughnut-chart>
+</ba-widget>

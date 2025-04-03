@@ -1,4 +1,5 @@
-<app-widget-remake [title]="'TỔNG QUAN CÔNG TY'" type="card" (widthChange)="changeWidth($event)">
+<ba-widget [title]="'TỔNG QUAN CÔNG TY'" type="card" (widthChange)="changeWidth($event)"
+  (reload)="callBackData()">
   <ba-card-chart [dataSource]="dataSource" [widthChange]="widthWidget">
   </ba-card-chart>
-</app-widget-remake>
+</ba-widget>
