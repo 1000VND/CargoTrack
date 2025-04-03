@@ -1,5 +1,6 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { DataDashboards } from '../../data/seed-data';
+import { AppBaseModule } from '../../app-base.module';
 
 @Component({
   selector: 'dashboard',
@@ -18,6 +19,8 @@ export class DashboardComponent implements OnInit {
         label: e.vehicle
       })
     });
+
+    this.totalDataDashboard();
   }
 
   ngOnInit() {
@@ -27,11 +30,10 @@ export class DashboardComponent implements OnInit {
    * Tính tổng tất cả dữ liệu của dashboard
    */
   totalDataDashboard() {
-    this.selectedItems = Object.assign([], this.selectedItems);
+    this.selectedItems = []
   }
 
   modelChange(){
     
   }
-
 }

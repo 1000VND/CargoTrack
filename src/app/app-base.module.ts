@@ -19,10 +19,9 @@ import { FormsModule } from "@angular/forms";
 
 @NgModule({
     declarations: [
-        WidgetComponent,
-        DashboardComponent,
-        BarComponent,
         MultiSelectComponent,
+        WidgetComponent,
+        BarComponent,
         CardComponent,
         DoughnutComponent,
         VehicleAtFactoryComponent,
@@ -30,10 +29,10 @@ import { FormsModule } from "@angular/forms";
         OverviewCompanyComponent,
         SummaryComponent,
         VehicleAtBorderComponent,
-        VehicleAtRoadComponent
+        VehicleAtRoadComponent,
+        DashboardComponent
     ],
     imports: [
-        BrowserModule,
         CommonModule,
         FormsModule,
         NgSelectModule,
