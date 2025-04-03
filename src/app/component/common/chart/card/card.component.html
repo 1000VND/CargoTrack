@@ -1,5 +1,5 @@
 <div *ngFor="let data of dataSource;let i=index" class="card-item p-0 flex-grow-1"
-  [style.background-color]="data.color ? data.color : colors[i]" [ngClass]="widthWidgetCardItem">
+  [style.background-color]="data.color ? data.color : getColor(i)" [ngClass]="widthWidgetCardItem">
   <div class="d-flex flex-column text-start p-2 h-100">
     <span class="fw-semibold">{{ data.title }}</span>
     <span class="col fw-semibold my-2">{{ data.value }} Phương tiện</span>

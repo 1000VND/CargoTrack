@@ -17,12 +17,12 @@
               </div>
               <div class="col col-md-auto p-0 multiple-container">
                 <ba-multiselect [options]="vehicles" [(ngModel)]="selectedItems" [defaultLabel]="'Chọn phương tiện'"
-                  (ngModelChange)="calculateDashboardTotalsBySelection()">
+                  (ngModelChange)="modelChange()">
                 </ba-multiselect>
               </div>
               <div class="col-auto pe-0">
                 <button type="button" class="btn d-flex align-items-center justify-content-center"
-                  style="background-color: #0959a0;" (click)="totalDataDashboard(); refreshMultiSelect()">
+                  style="background-color: #0959a0;" (click)="totalDataDashboard()">
                   <i class="fa-solid fa-rotate-right text-white"></i>
                 </button>
               </div>
@@ -33,44 +33,16 @@
     </div>
 
     <div class="row d-flex gap-2 m-0">
-      <!-- <ba-widget 
-        title="TỔNG QUAN CÔNG TY" 
-        type="card" 
-        [dataWidgetCard]="dataCard" 
-        (reload)="reloadOnClick('widget1')">
-      </ba-widget>
+      <overview-company-widget [vehicleSelected]="selectedItems"></overview-company-widget>
 
-      <ba-widget 
-        title="PHƯƠNG TIỆN TẠI CỬA KHẨU" 
-        type="doughnut" 
-        [dataWidgetDoughnut]="dataDoughnutBorder"
-        (reload)="reloadOnClick('widget2')">
-      </ba-widget>
+      <vehicle-at-border [vehicleSelected]="selectedItems"></vehicle-at-border>
 
-      <ba-widget 
-        title="PHƯƠNG TIỆN ĐANG TRÊN ĐƯỜNG" 
-        type="doughnut" 
-        [dataWidgetDoughnut]="dataDoughnutRoad"
-        (reload)="reloadOnClick('widget3')">
-      </ba-widget>
+      <vehicle-at-road [vehicleSelected]="selectedItems"></vehicle-at-road>
 
-      <ba-widget 
-        title="PHƯƠNG TIỆN TẠI NHÀ MÁY" 
-        type="bar" 
-        [dataWidgetBar]="dataBar" 
-        (reload)="reloadOnClick('widget4')">
-      </ba-widget>
-
-      <ba-widget 
-        title="PHƯƠNG TIỆN TẠI CẢNG" 
-        type="bar" 
-        [dataWidgetBar]="dataBarScroll" 
-        (reload)="reloadOnClick('widget5')">
-      </ba-widget> -->
-      <overview-company-widget></overview-company-widget>
       <vehicle-at-factory [vehicleSelected]="selectedItems"></vehicle-at-factory>
 
       <vehicle-at-port [vehicleSelected]="selectedItems"></vehicle-at-port>
 
+      <summary></summary>
     </div>
   </div>

@@ -110,3 +110,16 @@ export const Ports: { name: string, id: number }[] = [
     { name: 'Bãi xe 223 Trường Chinh 15', id: 29 },
     { name: 'Bãi X50 16', id: 30 },
 ];
+
+export const Colors: string[] = [
+    "#006adc",
+    "#509447",
+    "#e2803c",
+    "#d43f6a",
+    "#8e4b9e",
+    "#c9a039",
+    "#3b8c7d",
+    "#b85c38",
+    "#6b9c2e",
+    "#e05b8f"
+] as const;

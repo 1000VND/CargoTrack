@@ -9,13 +9,9 @@ import { DataDashboards } from '../../../data/seed-data';
 })
 export class OverviewCompanyComponent implements OnInit {
 
-
-  /**
-   * Khi dữ liệu 
-   */
   @Input() set vehicleSelected(vehicle: string[]) {
     this.vehicleSelectSaved = vehicle;
-    this.
+    this.callBackData();
   }
 
   /**
@@ -27,38 +23,62 @@ export class OverviewCompanyComponent implements OnInit {
 
   vehicleSelectSaved: string[] = [];
   widthWidget: string = 'width-card-fit-content';
-  dataSource: DataWidgetCard[] = [
-    {
-      title: 'Tổng số phương tiện của công ty',
-      value: this.vehicleSelectSaved.length,
-      showPercent: false
-    },
-    {
-      title: 'Phương tiện có hàng',
-      value: 85,
-      valuePercent: 10
-    },
-    {
-      title: 'Phương tiện không hàng',
-      value: 85,
-      valuePercent: 10
-    }
-  ];
+  dataSource: DataWidgetCard[] = [];
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  /**
+   * Thay đổi độ rộng của widget
+   * @param width 
+   */
   changeWidth(width: string) {
     this.widthWidget = width;
   }
 
-  private calculateVehicleAreStockOrEmpty(param: boolean, licensePlate: string[] = []): number {
+  /**
+   * Lấy lại dữ liệu
+   */
+  callBackData() {
+    const vehiclesWithStock = this.calculateVehicleCount(true, this.vehicleSelectSaved);
+    const vehiclesWithoutStock = this.calculateVehicleCount(false, this.vehicleSelectSaved);
+    const totalVehicles = vehiclesWithStock + vehiclesWithoutStock;
+
+    this.dataSource = [
+      {
+        title: 'Tổng số phương tiện của công ty',
+        value: totalVehicles,
+        showPercent: false
+      },
+      {
+        title: 'Phương tiện có hàng',
+        value: vehiclesWithStock,
+        valuePercent: Number((vehiclesWithStock / totalVehicles * 100).toFixed(0))
+      },
+      {
+        title: 'Phương tiện không hàng',
+        value: vehiclesWithoutStock,
+        valuePercent: Number((vehiclesWithoutStock / totalVehicles * 100).toFixed(0))
+      }
+    ];
+  }
+
+  /**
+   * Lấy dữ liệu cho biểu đồ cột dựa vào lựa chọn (MultiSelect)
+   * @param param 
+   * @param [licensePlate] 
+   * @returns vehicle count 
+   */
+  calculateVehicleCount(param: boolean, licensePlate: string[] = []): number {
+
+    const isAllData = licensePlate.length === 0 || licensePlate[0].includes('Tất cả');
+
     return DataDashboards.reduce((sum: number, vehicle: DataDashboard) => {
       const isMatchParam = vehicle.isVehicleAreStockOrEmpty == param;
 
-      const isInLicensePlate = licensePlate.length === 0 || licensePlate.includes(vehicle.vehicle);
+      const isInLicensePlate = isAllData || licensePlate.includes(vehicle.vehicle);
 
       if (isMatchParam && isInLicensePlate) {
         sum++;

@@ -1,0 +1,31 @@
+:host {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.doughnutchart-container {
+    min-width: 260px;
+    width: 100%;
+
+    dx-pie-chart {
+        width: 100%;
+    }
+
+    .marker-legend {
+        min-width: 260px;
+
+        .marker-legend-icon {
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            font-size: 0.75rem;
+        }
+
+        .marker-legend-label {
+            font-size: 0.75rem;
+        }
+    }
+}
