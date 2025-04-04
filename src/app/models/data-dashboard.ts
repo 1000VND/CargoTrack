@@ -18,9 +18,3 @@ export interface DataChart {
     value: number;
     argument: string;
 }
-
-export interface DataWidgetBar {
-    data: { value: number, label: string }[];
-    color: string;
-}
-

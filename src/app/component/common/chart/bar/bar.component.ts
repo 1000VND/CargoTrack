@@ -1,4 +1,5 @@
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { DataChart } from '../../../../models/data-dashboard';
 
 @Component({
   selector: 'ba-bar-chart',
@@ -8,7 +9,7 @@ import { Component, HostBinding, Input, OnInit } from '@angular/core';
 })
 export class BarComponent implements OnInit {
 
-  @Input() dataSource: { argument: string, value: number }[] = [];
+  @Input() dataSource: DataChart[] = [];
   @Input() color: string = '#d32f2f';
   @Input() gapBar: number = 130;
 

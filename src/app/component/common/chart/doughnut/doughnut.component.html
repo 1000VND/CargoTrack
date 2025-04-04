@@ -4,8 +4,16 @@
     startAngle: Góc bắt đầu của vòng tròn
     resolveLabelOverlapping: Xử lý hiển thị nhãn trùng lắp 
     -->
-  <dx-pie-chart #pieChart id="chart" class="px-0" type="doughnut" centerTemplate="centerTemplate"
-    [palette]="colorPalette" [dataSource]="dataSource" [innerRadius]="0.6" [startAngle]="110"
+  <dx-pie-chart 
+    #pieChart 
+    id="chart" 
+    class="px-0" 
+    type="doughnut" 
+    centerTemplate="centerTemplate"
+    [palette]="colorPalette" 
+    [dataSource]="dataSource" 
+    [innerRadius]="0.6" 
+    [startAngle]="110"
     [resolveLabelOverlapping]="'none'">
     <dxi-series argumentField="argument" valueField="value">
       <dxo-label [visible]="true" [customizeText]="customizeLabel" [backgroundColor]="'transparent'">

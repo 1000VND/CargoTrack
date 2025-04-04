@@ -12,7 +12,7 @@ export class SummaryComponent implements OnInit {
    * Thay đổi chiều rộng của widget
    */
   @HostBinding('class') get hostClasses() {
-    return this.widthWidget + ' p-0 d-flex';
+    return this.widthWidget;
   }
 
   widthWidget: string = 'width-card-fit-content';

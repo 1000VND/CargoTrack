@@ -15,19 +15,17 @@ export class VehicleAtRoadComponent implements OnInit {
   }
 
   @HostBinding('class') get hostClasses() {
-    return this.widthWidget + ' p-0 d-flex';
+    return this.widthWidget;
   }
 
   dataSource: DataChart[] = [];
-
   vehicleSelectSaved: string[] = [];
   totalCenterValue: number = 0;
   widthWidget: string = 'width-fit-content';
+
   constructor() { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   /**
    * Thay đổi độ rộng của widget

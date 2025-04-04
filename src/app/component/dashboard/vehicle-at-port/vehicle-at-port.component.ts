@@ -20,7 +20,7 @@ export class VehicleAtPortComponent implements OnInit {
    * Thay đổi chiều rông của widget
    */
   @HostBinding('class') get hostClasses() {
-    return this.widthWidget + ' p-0 d-flex';
+    return this.widthWidget;
   }
 
   widthWidget: string = 'width-fit-content';
@@ -29,8 +29,7 @@ export class VehicleAtPortComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   /**
    * Thay đổi độ rộng của widget

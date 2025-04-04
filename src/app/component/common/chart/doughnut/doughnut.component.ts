@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Colors } from '../../../../data/seed-data';
+import { DataChart } from '../../../../models/data-dashboard';
 
 @Component({
   selector: 'ba-doughnut-chart',
@@ -8,7 +9,7 @@ import { Colors } from '../../../../data/seed-data';
 })
 export class DoughnutComponent implements OnInit {
 
-  @Input() dataSource: { argument: string, value: number }[] = [];
+  @Input() dataSource: DataChart[] = [];
   @Input() totalCenterValue: number = 0;
 
   legend: { color: string, label: string }[] = [];
@@ -30,6 +31,11 @@ export class DoughnutComponent implements OnInit {
     return `${e.value} Phương tiện (${percentage.toFixed(0)}%)`;
   }
 
+  /**
+   * Lấy dữ liệu màu sắc cho biểu đồ
+   * Lấy thông tin về legend (màu sắc và nhãn) từ dataSource
+   * @returns color palette 
+   */
   getColorPalette(): string[] {
     const colorData: string[] = [];
 

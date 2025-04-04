@@ -18,7 +18,7 @@ export class OverviewCompanyComponent implements OnInit {
    * Thay đổi chiều rộng của widget
    */
   @HostBinding('class') get hostClasses() {
-    return this.widthWidget + ' p-0 d-flex';
+    return this.widthWidget;
   }
 
   vehicleSelectSaved: string[] = [];

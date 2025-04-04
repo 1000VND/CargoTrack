@@ -7,6 +7,7 @@ import { DataDashboards, Factories } from '../../../data/seed-data';
   styleUrls: ['./vehicle-at-factory.component.scss']
 })
 export class VehicleAtFactoryComponent implements OnInit {
+
   /**
    * Lấy dữ liệu cho biểu đồ cột
    */
@@ -19,7 +20,7 @@ export class VehicleAtFactoryComponent implements OnInit {
    * Thay đổi chiều rông của widget
    */
   @HostBinding('class') get hostClasses() {
-    return this.widthWidget + ' p-0 d-flex';
+    return this.widthWidget;
   }
 
   widthWidget: string = 'width-fit-content';
@@ -28,8 +29,7 @@ export class VehicleAtFactoryComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   /**
    * Thay đổi độ rộng của widget

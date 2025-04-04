@@ -23,8 +23,7 @@ export class DashboardComponent implements OnInit {
     this.totalDataDashboard();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   /**
    * Tính tổng tất cả dữ liệu của dashboard
@@ -33,7 +32,10 @@ export class DashboardComponent implements OnInit {
     this.selectedItems = []
   }
 
-  modelChange(){
-    
+  /**
+   * Bắt sự kiện khi có sự thay đổi trên MultiSelect
+   */
+  modelChange() {
   }
+  
 }

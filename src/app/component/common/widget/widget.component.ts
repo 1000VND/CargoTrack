@@ -45,6 +45,9 @@ export class WidgetComponent implements OnInit {
     this.isShowCollapse = !this.isShowCollapse;
   }
 
+  /**
+   * Tải lại dữ liệu cho widget
+   */
   onReload() {
     this.reload.emit();
   }
