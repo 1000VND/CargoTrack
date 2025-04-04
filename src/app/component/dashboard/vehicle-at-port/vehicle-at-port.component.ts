@@ -4,7 +4,7 @@ import { DataDashboards, Ports } from '../../../data/seed-data';
 @Component({
   selector: 'vehicle-at-port',
   templateUrl: './vehicle-at-port.component.html',
-  styleUrls: ['./vehicle-at-port.component.scss']
+  styleUrls: ['./vehicle-at-port.component.scss'],
 })
 export class VehicleAtPortComponent implements OnInit {
 

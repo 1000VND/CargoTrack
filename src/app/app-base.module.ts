@@ -15,7 +15,7 @@ import { SummaryComponent } from "./component/dashboard/summary/summary.componen
 import { VehicleAtBorderComponent } from "./component/dashboard/vehicle-at-border/vehicle-at-border.component";
 import { VehicleAtRoadComponent } from "./component/dashboard/vehicle-at-road/vehicle-at-road.component";
 import { WidgetComponent } from "./component/common/widget/widget.component";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -35,6 +35,7 @@ import { FormsModule } from "@angular/forms";
     imports: [
         CommonModule,
         FormsModule,
+        ReactiveFormsModule,
         NgSelectModule,
         DxPieChartModule,
         DxChartModule,
@@ -42,6 +43,7 @@ import { FormsModule } from "@angular/forms";
     exports: [
         CommonModule,
         FormsModule,
+        ReactiveFormsModule,
         NgSelectModule,
         DxPieChartModule,
         DxChartModule,

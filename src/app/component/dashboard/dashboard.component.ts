@@ -1,6 +1,5 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataDashboards } from '../../data/seed-data';
-import { AppBaseModule } from '../../app-base.module';
 
 @Component({
   selector: 'dashboard',
@@ -20,22 +19,19 @@ export class DashboardComponent implements OnInit {
       })
     });
 
-    this.totalDataDashboard();
+    this.refreshData();
   }
 
   ngOnInit() { }
 
   /**
-   * Tính tổng tất cả dữ liệu của dashboard
+   * Làm mới dữ liệu cho các component con
    */
-  totalDataDashboard() {
+  refreshData() {
     this.selectedItems = []
   }
 
-  /**
-   * Bắt sự kiện khi có sự thay đổi trên MultiSelect
-   */
-  modelChange() {
+  onSelect(e: any){
+    
   }
-  
 }

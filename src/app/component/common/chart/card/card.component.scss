@@ -10,15 +10,10 @@
 .card-item {
     color: #ffffff;
     border-radius: 0.5rem;
+    min-width: 260px;
 
     p {
         margin-top: 1rem;
         margin-bottom: 0;
-    }
-}
-
-@media (max-width: 576px) {
-    :host {
-        flex-direction: column;
     }
 }

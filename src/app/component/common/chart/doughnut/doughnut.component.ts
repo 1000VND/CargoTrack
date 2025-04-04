@@ -18,15 +18,17 @@ export class DoughnutComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.colorPalette = this.getColorPalette();
+    this.colorPalette = ['#509447', '#e2803c'];
+
+    this.getColorPalette();
   }
 
   /**
-   * Customizes label
-   * @param e 
+   * Chỉnh sửa nhãn cho biểu đồ
+   * @param e dữ liệu nhãn 
    * @returns  
    */
-  customizeLabel(e: any) {
+  customizeLabel(e: { percent: number, value: number }) {
     const percentage = e.percent * 100;
     return `${e.value} Phương tiện (${percentage.toFixed(0)}%)`;
   }
@@ -36,26 +38,10 @@ export class DoughnutComponent implements OnInit {
    * Lấy thông tin về legend (màu sắc và nhãn) từ dataSource
    * @returns color palette 
    */
-  getColorPalette(): string[] {
-    const colorData: string[] = [];
-
+  getColorPalette() {
     for (let i = 0; i < this.dataSource.length; i++) {
-      if (i >= Colors.length) {
-        let color: string;
-
-        do {
-          // Tạo một màu ngẫu nhiên ở dạng HEX
-          color = "#" + Math.floor(Math.random() * 16777215).toString(16);
-        } while (Colors.includes(color) && colorData.includes(color)); // Kiểm tra xem màu đã tồn tại trong danh sách hay chưa
-        colorData.push(color);
-      } else {
-        colorData.push(Colors[i + 1]);
-      }
-
-      this.legend.push({ color: colorData[i], label: this.dataSource[i].argument });
+      this.legend.push({ color: this.colorPalette[i], label: this.dataSource[i].argument });
     }
-
-    return colorData;
   }
 
 }

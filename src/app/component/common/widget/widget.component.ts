@@ -76,6 +76,6 @@ export class WidgetComponent implements OnInit {
         break;
     }
 
-    this.widthChange.emit(widthWidget);
+    this.widthChange.emit(widthWidget + ' p-0 d-flex');
   }
 }

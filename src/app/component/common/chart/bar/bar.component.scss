@@ -6,32 +6,6 @@
     overflow-y: hidden;
 }
 
-@media (min-width: 1200px) {
-    .chart-wrapper {
-        max-width: 90vw;
-    }
-}
-
-@media (max-width: 1199px) {
-    .chart-wrapper {
-        max-width: 89vw;
-    }
-}
-
-@media (max-width: 991px) {
-    .chart-wrapper {
-        max-width: 82vw;
-    }
-}
-
-@media (max-width: 576px) {
-    .chart-wrapper {
-        max-width: 72vw;
-    }
-}
-
-@media (max-width: 370px) {
-    .chart-wrapper {
-        max-width: 69vw;
-    }
+.chart-wrapper {
+    width: 28vw;
 }

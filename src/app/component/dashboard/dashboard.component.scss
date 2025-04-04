@@ -1,3 +1,47 @@
 .multiple-container {
     width: 25vw;
 }
+
+
+.width-fit-content {
+    flex: 1 0 auto;
+    width: calc(33.33% - 5.5px);
+}
+
+.width-card-fit-content {
+    width: 100%;
+}
+
+@media (min-width: 576px) {
+    .col-cus-4 {
+        flex: 0 0 auto;
+        width: calc(33.33% - 5.5px);
+    }
+
+    .col-cus-8 {
+        flex: 0 0 auto;
+        width: calc(66.66% - 3px);
+    }
+
+    .col-cus-12 {
+        flex: 0 0 auto;
+        width: calc(100% - 0.5px);
+    }
+}
+
+@media (max-width: 992px) {
+    .width-fit-content {
+        flex: 1 0 auto;
+        width: calc(50% - 5px);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .width-fit-content,
+    .width-card-fit-content,
+    .col-cus-12 {
+        flex: 0 0 auto;
+        width: calc(100% - 5px);
+    }
+}

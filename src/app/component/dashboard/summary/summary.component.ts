@@ -43,7 +43,7 @@ export class SummaryComponent implements OnInit {
       valuePercent: 25
     }
   ];
-  
+
   constructor() { }
 
   ngOnInit() {

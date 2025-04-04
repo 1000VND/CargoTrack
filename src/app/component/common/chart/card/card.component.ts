@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DataWidgetCard } from '../../../../models/data-dashboard';
 import { Colors } from '../../../../data/seed-data';
 

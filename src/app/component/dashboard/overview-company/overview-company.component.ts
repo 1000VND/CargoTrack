@@ -5,7 +5,7 @@ import { DataDashboards } from '../../../data/seed-data';
 @Component({
   selector: 'overview-company-widget',
   templateUrl: './overview-company.component.html',
-  styleUrls: ['./overview-company.component.scss']
+  styleUrls: ['./overview-company.component.scss', '../dashboard.component.scss']
 })
 export class OverviewCompanyComponent implements OnInit {
 
@@ -55,12 +55,12 @@ export class OverviewCompanyComponent implements OnInit {
       {
         title: 'Phương tiện có hàng',
         value: vehiclesWithStock,
-        valuePercent: Number((vehiclesWithStock / totalVehicles * 100).toFixed(0))
+        valuePercent: vehiclesWithStock / totalVehicles * 100
       },
       {
         title: 'Phương tiện không hàng',
         value: vehiclesWithoutStock,
-        valuePercent: Number((vehiclesWithoutStock / totalVehicles * 100).toFixed(0))
+        valuePercent: vehiclesWithoutStock / totalVehicles * 100
       }
     ];
   }

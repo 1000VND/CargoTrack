@@ -9,10 +9,12 @@ import { DataChart, DataDashboard } from '../../../models/data-dashboard';
 })
 export class VehicleAtRoadComponent implements OnInit {
 
-  @Input() set vehicleSelected(vehicle: string[]) {
-    this.vehicleSelectSaved = vehicle;
-    this.callBackData(vehicle);
-  }
+  // @Input() set vehicleSelected(vehicle: string[]) {
+  //   this.vehicleSelectSaved = vehicle;
+  //   this.callBackData(vehicle);
+  // }
+
+  @Input() vehicleSelected: string[] = [];
 
   @HostBinding('class') get hostClasses() {
     return this.widthWidget;
