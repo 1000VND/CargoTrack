@@ -16,6 +16,9 @@ import { VehicleAtBorderComponent } from "./component/dashboard/vehicle-at-borde
 import { VehicleAtRoadComponent } from "./component/dashboard/vehicle-at-road/vehicle-at-road.component";
 import { WidgetComponent } from "./component/common/widget/widget.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { AppComponent } from "./app.component";
+import { RouterModule, RouterOutlet } from "@angular/router";
+import { routes } from "./app.routes";
 
 @NgModule({
     declarations: [
@@ -30,15 +33,18 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
         SummaryComponent,
         VehicleAtBorderComponent,
         VehicleAtRoadComponent,
-        DashboardComponent
+        DashboardComponent,
+        AppComponent
     ],
     imports: [
+        BrowserModule,
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
         NgSelectModule,
         DxPieChartModule,
         DxChartModule,
+        RouterModule.forRoot(routes)
     ],
     exports: [
         CommonModule,
@@ -47,9 +53,11 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
         NgSelectModule,
         DxPieChartModule,
         DxChartModule,
+        RouterModule
     ],
     providers: [
 
-    ]
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppBaseModule { }

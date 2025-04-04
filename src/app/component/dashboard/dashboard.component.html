@@ -16,7 +16,7 @@
                 <span class="text-muted fw-semibold">XEM THEO</span>
               </div>
               <div class="col col-md-auto p-0 multiple-container">
-                <ba-multiselect [options]="vehicles" [(ngModel)]="selectedItems" [defaultLabel]="'Chọn phương tiện'">
+                <ba-multiselect [options]="vehicles" [(ngModel)]="selectedItems" [defaultLabel]="'Chọn phương tiện'" (onChangeValue)="onChangeValue($event)">
                 </ba-multiselect>
               </div>
               <div class="col-auto pe-0">

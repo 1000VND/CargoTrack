@@ -19,6 +19,8 @@ export class DashboardComponent implements OnInit {
       })
     });
 
+
+
     this.refreshData();
   }
 
@@ -29,5 +31,9 @@ export class DashboardComponent implements OnInit {
    */
   refreshData() {
     this.selectedItems = []
+  }
+
+  onChangeValue(event: any) {
+    console.log(event);
   }
 }

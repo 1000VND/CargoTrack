@@ -35,6 +35,7 @@ export class MultiSelectComponent implements OnInit {
   }
 
   writeValue(val: any): void {
+    console.log(val);
     this.selectedOptions = val ?? ""
   }
 
