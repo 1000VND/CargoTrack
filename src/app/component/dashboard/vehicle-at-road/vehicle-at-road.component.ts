@@ -68,7 +68,6 @@ export class VehicleAtRoadComponent implements OnInit {
 
   /**
    * Tính toán số lượng phương tiện dựa vào các tham số
-   * @param isBorderOrRoad 
    * @param isStockEmpty 
    * @param [licensePlate] 
    * @returns vehicle 
