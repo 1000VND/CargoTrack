@@ -54,8 +54,10 @@ export class VehicleAtPortComponent implements OnInit {
   private countDataBarPort(licensePlate: string[] = []): { argument: string, value: number }[] {
     this.dataSource = [];
 
+    const isAllData = licensePlate.length === 0 || licensePlate[0].includes('Tất cả');
+
     // Lọc các phương tiện đang ở cảng
-    const vehicle = DataDashboards.filter(e => (licensePlate.length === 0 || licensePlate.includes(e.vehicle)) && e.vehicleAtPort)
+    const vehicle = DataDashboards.filter(e => (isAllData || licensePlate.includes(e.vehicle)) && e.vehicleAtPort)
       .map(item => item.vehicleAtPort);
 
     return Ports.map((port) => {
