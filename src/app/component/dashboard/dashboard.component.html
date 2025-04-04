@@ -16,7 +16,7 @@
                 <span class="text-muted fw-semibold">XEM THEO</span>
               </div>
               <div class="col col-md-auto p-0 multiple-container">
-                <ba-multiselect [options]="vehicles" [(ngModel)]="selectedItems" [defaultLabel]="'Chọn phương tiện'" (on)="onSelect($event)">
+                <ba-multiselect [options]="vehicles" [(ngModel)]="selectedItems" [defaultLabel]="'Chọn phương tiện'">
                 </ba-multiselect>
               </div>
               <div class="col-auto pe-0">
@@ -32,16 +32,16 @@
     </div>
 
     <div class="row gap-2 m-0">
-      <!-- <overview-company-widget [vehicleSelected]="selectedItems"></overview-company-widget>
+      <overview-company-widget [vehicleSelected]="selectedItems"></overview-company-widget>
 
-      <vehicle-at-border [vehicleSelected]="selectedItems"></vehicle-at-border> -->
+      <vehicle-at-border [vehicleSelected]="selectedItems"></vehicle-at-border>
 
       <vehicle-at-road [vehicleSelected]="selectedItems"></vehicle-at-road>
 
-      <!-- <vehicle-at-factory [vehicleSelected]="selectedItems"></vehicle-at-factory>
+      <vehicle-at-factory [vehicleSelected]="selectedItems"></vehicle-at-factory>
 
       <vehicle-at-port [vehicleSelected]="selectedItems"></vehicle-at-port>
 
-      <summary></summary> -->
+      <summary></summary>
     </div>
   </div>

@@ -30,8 +30,4 @@ export class DashboardComponent implements OnInit {
   refreshData() {
     this.selectedItems = []
   }
-
-  onSelect(e: any){
-    
-  }
 }
